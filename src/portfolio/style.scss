@@ -5,21 +5,20 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.portfolio-items {
+.pawsome-portfolio .pawsome-portfolio-items {
 	display: flex;
 }
 
-.clear-tags-button {
+.pawsome-portfolio .clear-tags-button {
     margin-left: 10px;
     cursor: pointer;
 }
 
-/* Active state styling for tag buttons */
-.portfolio-tag-button.active {
+.pawsome-portfolio .pawsome-portfolio-tag-button.active {
     background-color: #0073aa;
     color: white;
 }
 
-.portfolio-tag-button {
+.pawsome-portfolio .pawsome-portfolio-tag-button {
     margin-right: 5px;
 }

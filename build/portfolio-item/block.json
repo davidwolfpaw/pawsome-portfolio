@@ -1,7 +1,7 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "portfolio-tag-filter/portfolio-item",
+  "name": "pawsome-portfolio/portfolio-item",
   "version": "0.1.0",
   "title": "Portfolio Item",
   "category": "widgets",

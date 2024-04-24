@@ -60,11 +60,11 @@ function register_portfolio_filter_block() {
 
 	// Register the block type
 	register_block_type(
-		'portfolio-tag-filter/portfolio',
+		'pawsome-portfolio/portfolio',
 		array(
 			'$schema'         => 'https://schemas.wp.org/trunk/block.json',
 			'apiVersion'      => 3,
-			'name'            => 'portfolio-tag-filter/portfolio',
+			'name'            => 'pawsome-portfolio/portfolio',
 			'version'         => '0.1.0',
 			'category'        => 'widgets',
 			'icon'            => 'portfolio',
@@ -72,7 +72,7 @@ function register_portfolio_filter_block() {
 			'supports'        => array(
 				'html' => false,
 			),
-			'textdomain'      => 'portfolio-tag-filter',
+			'textdomain'      => 'pawsome-portfolio',
 			'title'           => 'Portfolio Tag Filter',
 			'editor_script'   => 'portfolio-block-editor-script',
 			'view_script'     => 'portfolio-view-script',

@@ -22,14 +22,14 @@ function render_portfolio_block( $attributes ) {
 	$show_excerpt        = $attributes['show_excerpt'];
 	$show_publish_date   = $attributes['show_publish_date'];
 
-	$output = '<div class="portfolio-block">';
+	$output = '<div class="pawsome-portfolio">';
 
 	$args  = array(
-		'post_type'      => 'portfolio_item',
+		'post_type'      => 'pawsome_item',
 		'posts_per_page' => -1,
 		'tax_query'      => array(
 			array(
-				'taxonomy' => 'portfolio_category',
+				'taxonomy' => 'pawsome_category',
 				'field'    => 'term_id',
 				'terms'    => $selected_category,
 			),
@@ -41,7 +41,7 @@ function render_portfolio_block( $attributes ) {
 	if ( $query->have_posts() ) {
 		while ( $query->have_posts() ) {
 			$query->the_post();
-			$post_tags = get_the_terms( get_the_ID(), 'portfolio_tag' );
+			$post_tags = get_the_terms( get_the_ID(), 'pawsome_tag' );
 			if ( ! is_wp_error( $post_tags ) && ! empty( $post_tags ) ) {
 				foreach ( $post_tags as $post_tag ) {
 					if ( ! isset( $tags[ $post_tag->term_id ] ) ) {
@@ -59,9 +59,9 @@ function render_portfolio_block( $attributes ) {
 
 	// Display tags as buttons
 	if ( ! empty( $tags ) ) {
-		$output .= '<div class="portfolio-tag-buttons">';
+		$output .= '<div class="pawsome-portfolio-tag-buttons">';
 		foreach ( $tags as $tag_id => $tag_info ) {
-			$output .= '<button class="portfolio-tag-button" data-tag-id="' . esc_attr( $tag_id ) . '">'
+			$output .= '<button class="pawsome-portfolio-tag-button" data-tag-id="' . esc_attr( $tag_id ) . '">'
 				. esc_html( $tag_info['name'] ) . ' (' . $tag_info['count'] . ')</button>';
 		}
 		$output .= '</div>';
@@ -69,11 +69,11 @@ function render_portfolio_block( $attributes ) {
 
 	// Display posts
 	if ( $query->have_posts() ) {
-		$output .= '<div class="portfolio-items">';
+		$output .= '<div class="pawsome-portfolio-items">';
 		while ( $query->have_posts() ) {
 			$query->the_post();
 			$permalink = get_permalink();
-			$post_tags = get_the_terms( get_the_ID(), 'portfolio_tag' );
+			$post_tags = get_the_terms( get_the_ID(), 'pawsome_tag' );
 			if ( ! is_wp_error( $post_tags ) && ! empty( $post_tags ) ) {
 				$tag_ids = array_map(
 					function ( $tag ) {
@@ -83,9 +83,9 @@ function render_portfolio_block( $attributes ) {
 				);
 
 				if ( ! empty( $is_linked ) && $is_linked ) {
-					$output .= '<a href="' . esc_url( $permalink ) . '" class="portfolio-item-link">';
+					$output .= '<a href="' . esc_url( $permalink ) . '" class="pawsome-portfolio-item-link">';
 				}
-				$output .= '<div class="portfolio-item" data-tag-ids="' . esc_attr( wp_json_encode( $tag_ids ) ) . '">';
+				$output .= '<div class="pawsome-portfolio-item" data-tag-ids="' . esc_attr( wp_json_encode( $tag_ids ) ) . '">';
 
 				if ( $show_featured_image ) {
 					$output .= get_the_post_thumbnail( get_the_ID(), 'thumbnail' );

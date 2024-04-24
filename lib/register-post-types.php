@@ -14,42 +14,42 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Registers the Custom Post Type used for the Portfolio Item block
  */
-function create_portfolio_item_post_type() {
+function create_pawsome_item_post_type() {
 
 	$labels = array(
-		'name'                  => _x( 'Portfolio Items', 'Post Type General Name', 'text_domain' ),
-		'singular_name'         => _x( 'Portfolio Item', 'Post Type Singular Name', 'text_domain' ),
-		'menu_name'             => __( 'Portfolio Items', 'text_domain' ),
-		'name_admin_bar'        => __( 'Portfolio Item', 'text_domain' ),
-		'archives'              => __( 'Portfolio Item Archives', 'text_domain' ),
-		'attributes'            => __( 'Portfolio Item Attributes', 'text_domain' ),
-		'all_items'             => __( 'All Portfolio Items', 'text_domain' ),
-		'add_new_item'          => __( 'Add New Portfolio Item', 'text_domain' ),
-		'add_new'               => __( 'Add New', 'text_domain' ),
-		'new_item'              => __( 'New Portfolio Item', 'text_domain' ),
-		'edit_item'             => __( 'Edit Portfolio Item', 'text_domain' ),
-		'update_item'           => __( 'Update Portfolio Item', 'text_domain' ),
-		'view_item'             => __( 'View Portfolio Item', 'text_domain' ),
-		'view_items'            => __( 'View Portfolio Items', 'text_domain' ),
-		'search_items'          => __( 'Search Portfolio Item', 'text_domain' ),
-		'not_found'             => __( 'Not found', 'text_domain' ),
-		'not_found_in_trash'    => __( 'Not found in Trash', 'text_domain' ),
-		'featured_image'        => __( 'Featured Image', 'text_domain' ),
-		'set_featured_image'    => __( 'Set featured image', 'text_domain' ),
-		'remove_featured_image' => __( 'Remove featured image', 'text_domain' ),
-		'use_featured_image'    => __( 'Use as featured image', 'text_domain' ),
-		'insert_into_item'      => __( 'Insert into Portfolio Item', 'text_domain' ),
-		'uploaded_to_this_item' => __( 'Uploaded to this Portfolio Item', 'text_domain' ),
-		'items_list'            => __( 'Portfolio Items list', 'text_domain' ),
-		'items_list_navigation' => __( 'Portfolio Items list navigation', 'text_domain' ),
-		'filter_items_list'     => __( 'Filter Portfolio Items list', 'text_domain' ),
+		'name'                  => _x( 'Pawsome Portfolio Items', 'Post Type General Name', 'pawsome-portfolio' ),
+		'singular_name'         => _x( 'Portfolio Item', 'Post Type Singular Name', 'pawsome-portfolio' ),
+		'menu_name'             => __( 'Pawsome', 'pawsome-portfolio' ),
+		'name_admin_bar'        => __( 'Portfolio Item', 'pawsome-portfolio' ),
+		'archives'              => __( 'Portfolio Item Archives', 'pawsome-portfolio' ),
+		'attributes'            => __( 'Portfolio Item Attributes', 'pawsome-portfolio' ),
+		'all_items'             => __( 'All Portfolio Items', 'pawsome-portfolio' ),
+		'add_new_item'          => __( 'Add New Portfolio Item', 'pawsome-portfolio' ),
+		'add_new'               => __( 'Add New', 'pawsome-portfolio' ),
+		'new_item'              => __( 'New Portfolio Item', 'pawsome-portfolio' ),
+		'edit_item'             => __( 'Edit Portfolio Item', 'pawsome-portfolio' ),
+		'update_item'           => __( 'Update Portfolio Item', 'pawsome-portfolio' ),
+		'view_item'             => __( 'View Portfolio Item', 'pawsome-portfolio' ),
+		'view_items'            => __( 'View Portfolio Items', 'pawsome-portfolio' ),
+		'search_items'          => __( 'Search Portfolio Item', 'pawsome-portfolio' ),
+		'not_found'             => __( 'Not found', 'pawsome-portfolio' ),
+		'not_found_in_trash'    => __( 'Not found in Trash', 'pawsome-portfolio' ),
+		'featured_image'        => __( 'Featured Image', 'pawsome-portfolio' ),
+		'set_featured_image'    => __( 'Set featured image', 'pawsome-portfolio' ),
+		'remove_featured_image' => __( 'Remove featured image', 'pawsome-portfolio' ),
+		'use_featured_image'    => __( 'Use as featured image', 'pawsome-portfolio' ),
+		'insert_into_item'      => __( 'Insert into Portfolio Item', 'pawsome-portfolio' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this Portfolio Item', 'pawsome-portfolio' ),
+		'items_list'            => __( 'Portfolio Items list', 'pawsome-portfolio' ),
+		'items_list_navigation' => __( 'Portfolio Items list navigation', 'pawsome-portfolio' ),
+		'filter_items_list'     => __( 'Filter Portfolio Items list', 'pawsome-portfolio' ),
 	);
 	$args   = array(
-		'label'               => __( 'Portfolio Item', 'text_domain' ),
-		'description'         => __( 'You can design pages around each of your portfolio items, then display them by category on any page.', 'text_domain' ),
+		'label'               => __( 'Portfolio Item', 'pawsome-portfolio' ),
+		'description'         => __( 'You can design pages around each of your portfolio items, then display them by category on any page.', 'pawsome-portfolio' ),
 		'labels'              => $labels,
 		'supports'            => array( 'title', 'editor', 'thumbnail', 'comments', 'trackbacks', 'revisions', 'custom-fields' ),
-		'taxonomies'          => array( 'portfolio_tag', ' portfolio_category' ),
+		'taxonomies'          => array( 'pawsome_tag', ' pawsome_category' ),
 		'hierarchical'        => false,
 		'public'              => true,
 		'show_ui'             => true,
@@ -66,6 +66,6 @@ function create_portfolio_item_post_type() {
 		'show_in_rest'        => true,
 		'rewrite'             => array( 'slug' => 'portfolio-item' ),
 	);
-	register_post_type( 'portfolio_item', $args );
+	register_post_type( 'pawsome_item', $args );
 }
-add_action( 'init', 'create_portfolio_item_post_type' );
+add_action( 'init', 'create_pawsome_item_post_type' );

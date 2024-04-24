@@ -1,4 +1,4 @@
-=== Portfolio Tag Filter ===
+=== Pawsome Portfolio ===
 Contributors:      wolfpaw
 Tags:              block
 Tested up to:      6.1
@@ -6,7 +6,7 @@ Stable tag:        0.1.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
-A Portfolio Block with Item sub-blocks that can then be tagged, and filtered by tag
+A Portfolio Block with a custom Portfolio Item post type that can then be tagged, and filtered by tag
 
 == Description ==
 

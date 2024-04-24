@@ -99,7 +99,7 @@ const Edit = ({ attributes, setAttributes, categories, className }) => {
 
 export default withSelect((select) => {
 	const { getEntityRecords } = select('core');
-	const categories = getEntityRecords('taxonomy', 'portfolio_category', { per_page: -1 });
+	const categories = getEntityRecords('taxonomy', 'pawsome_category', { per_page: -1 });
 	return {
 		categories: categories || []
 	};

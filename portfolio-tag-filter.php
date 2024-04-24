@@ -1,17 +1,17 @@
 <?php
 /**
- * Plugin Name:       Portfolio Tag Filter
+ * Plugin Name:       Pawsome Portfolio
  * Plugin URI:        https://david.garden/
- * Description:       A Portfolio Block with Item sub-blocks that can then be tagged, and filtered by tag
+ * Description:       A Portfolio Block with a custom Portfolio Item post type that can then be tagged, and filtered by tag
  * Requires at least: 6.1
  * Requires PHP:      7.0
  * Version:           0.1.0
  * Author:            wolfpaw
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       portfolio-tag-filter
+ * Text Domain:       pawsome-portfolio
  *
- * @package PortfolioTagFilter
+ * @package PawsomePortfolio
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
