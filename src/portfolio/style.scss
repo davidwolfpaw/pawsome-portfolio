@@ -1,0 +1,25 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.portfolio-items {
+	display: flex;
+}
+
+.clear-tags-button {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/* Active state styling for tag buttons */
+.portfolio-tag-button.active {
+    background-color: #0073aa;
+    color: white;
+}
+
+.portfolio-tag-button {
+    margin-right: 5px;
+}

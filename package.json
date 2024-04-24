@@ -1,0 +1,21 @@
+{
+	"name": "portfolio-tag-filter",
+	"version": "0.1.0",
+	"description": "A Portfolio Block with Item sub-blocks that can then be tagged, and filtered by tag",
+	"author": "wolfpaw",
+	"license": "GPL-2.0-or-later",
+	"homepage": "https://david.garden/",
+	"main": "build/index.js",
+	"scripts": {
+		"build": "wp-scripts build",
+		"format": "wp-scripts format",
+		"lint:css": "wp-scripts lint-style",
+		"lint:js": "wp-scripts lint-js",
+		"packages-update": "wp-scripts packages-update",
+		"plugin-zip": "wp-scripts plugin-zip",
+		"start": "wp-scripts start"
+	},
+	"devDependencies": {
+		"@wordpress/scripts": "^27.6.0"
+	}
+}
