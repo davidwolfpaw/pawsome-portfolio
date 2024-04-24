@@ -69,6 +69,7 @@ const Edit = ({
 }) => {
   const {
     selected_category,
+    items_per_page,
     is_linked,
     show_featured_image,
     show_title,
@@ -103,7 +104,14 @@ const Edit = ({
     onChange: updateCategory
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
     title: "Display Settings"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+    label: "Items Per Page",
+    value: items_per_page,
+    type: "number",
+    onChange: value => setAttributes({
+      items_per_page: parseInt(value, 10)
+    })
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
     label: "Link Portfolio Items",
     checked: is_linked,
     onChange: value => setAttributes({

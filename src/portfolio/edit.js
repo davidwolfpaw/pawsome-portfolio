@@ -12,7 +12,7 @@ import { __ } from '@wordpress/i18n';
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
 import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
-import { PanelBody, SelectControl, ToggleControl } from '@wordpress/components';
+import { PanelBody, TextControl, SelectControl, ToggleControl } from '@wordpress/components';
 import { withSelect } from '@wordpress/data';
 import { useState } from '@wordpress/element';
 
@@ -34,7 +34,7 @@ import './editor.scss';
  */
 
 const Edit = ({ attributes, setAttributes, categories, className }) => {
-	const { selected_category, is_linked, show_featured_image, show_title, show_excerpt, show_publish_date } = attributes;
+	const { selected_category, items_per_page, is_linked, show_featured_image, show_title, show_excerpt, show_publish_date } = attributes;
 
 	// Update the selected category
 	const updateCategory = (selected_category) => {
@@ -59,6 +59,12 @@ const Edit = ({ attributes, setAttributes, categories, className }) => {
 					/>
 				</PanelBody>
 				<PanelBody title="Display Settings">
+					<TextControl
+						label="Items Per Page"
+						value={items_per_page}
+						type="number"
+						onChange={(value) => setAttributes({ items_per_page: parseInt(value, 10) })}
+					/>
 					<ToggleControl
 						label="Link Portfolio Items"
 						checked={is_linked}

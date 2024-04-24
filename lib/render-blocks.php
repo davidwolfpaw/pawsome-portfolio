@@ -24,9 +24,13 @@ function render_portfolio_block( $attributes ) {
 
 	$output = '<div class="portfolio-block">';
 
+	$paged          = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
+	$items_per_page = ! empty( $attributes['items_per_page'] ) ? $attributes['items_per_page'] : 10;
+
 	$args  = array(
 		'post_type'      => 'portfolio_item',
-		'posts_per_page' => -1,
+		'posts_per_page' => $items_per_page,
+		'paged'          => $paged,
 		'tax_query'      => array(
 			array(
 				'taxonomy' => 'portfolio_category',
@@ -109,6 +113,17 @@ function render_portfolio_block( $attributes ) {
 		$output .= '</div>';
 		wp_reset_postdata();
 	}
+
+	// Add pagination links
+	$output .= paginate_links(
+		array(
+			'total'    => $query->max_num_pages,
+			'current'  => $paged,
+			'format'   => '?paged=%#%',
+			'show_all' => false,
+			'type'     => 'plain',
+		)
+	);
 
 	$output .= '</div>';
 	return $output;

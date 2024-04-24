@@ -84,6 +84,10 @@ function register_portfolio_filter_block() {
 					'type'    => 'number',
 					'default' => 0,
 				),
+				'items_per_page'      => array(
+					'type'    => 'number',
+					'default' => 10,
+				),
 				'is_linked'           => array(
 					'type'    => 'boolean',
 					'default' => true,
