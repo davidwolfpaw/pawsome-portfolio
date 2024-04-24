@@ -94,3 +94,26 @@ function make_taxonomy_columns_sortable( $columns ) {
 	return $columns;
 }
 add_filter( 'manage_edit-pawsome_item_sortable_columns', 'make_taxonomy_columns_sortable' );
+
+function pawsome_add_custom_orderby( $clauses, $wp_query ) {
+	global $wpdb;
+
+	if ( 'pawsome_category' === $wp_query->get( 'orderby' ) ) {
+		$clauses['join']    .= " LEFT JOIN {$wpdb->term_relationships} ON {$wpdb->posts}.ID = {$wpdb->term_relationships}.object_id LEFT JOIN {$wpdb->term_taxonomy} USING (term_taxonomy_id) LEFT JOIN {$wpdb->terms} USING (term_id)";
+		$clauses['where']   .= " AND (taxonomy = 'pawsome_category' OR taxonomy IS NULL)";
+		$clauses['groupby']  = 'object_id';
+		$clauses['orderby']  = "GROUP_CONCAT({$wpdb->terms}.name ORDER BY name ASC) ";
+		$clauses['orderby'] .= ( 'ASC' === strtoupper( $wp_query->get( 'order' ) ) ) ? 'ASC' : 'DESC';
+	}
+
+	if ( 'pawsome_tag' === $wp_query->get( 'orderby' ) ) {
+		$clauses['join']    .= " LEFT JOIN {$wpdb->term_relationships} ON {$wpdb->posts}.ID = {$wpdb->term_relationships}.object_id LEFT JOIN {$wpdb->term_taxonomy} USING (term_taxonomy_id) LEFT JOIN {$wpdb->terms} USING (term_id)";
+		$clauses['where']   .= " AND (taxonomy = 'pawsome_tag' OR taxonomy IS NULL)";
+		$clauses['groupby']  = 'object_id';
+		$clauses['orderby']  = "GROUP_CONCAT({$wpdb->terms}.name ORDER BY name ASC) ";
+		$clauses['orderby'] .= ( 'ASC' === strtoupper( $wp_query->get( 'order' ) ) ) ? 'ASC' : 'DESC';
+	}
+
+	return $clauses;
+}
+add_filter( 'posts_clauses', 'pawsome_add_custom_orderby', 10, 2 );
