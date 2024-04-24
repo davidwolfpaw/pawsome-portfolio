@@ -17,8 +17,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	// Append the clear button after the last tag button
 	if (buttons.length > 0) {
 		buttons[buttons.length - 1].parentNode.appendChild(clearButton);
-	} else {
-		buttonsContainer.appendChild(clearButton); // Fallback if no buttons exist
 	}
 
 	let selectedTags = [];

@@ -500,7 +500,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/tru
 /******/ 			return __webpack_require__.O(result);
 /******/ 		}
 /******/ 		
-/******/ 		var chunkLoadingGlobal = globalThis["webpackChunkportfolio_tag_filter"] = globalThis["webpackChunkportfolio_tag_filter"] || [];
+/******/ 		var chunkLoadingGlobal = globalThis["webpackChunkpawsome_portfolio"] = globalThis["webpackChunkpawsome_portfolio"] || [];
 /******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
 /******/ 	})();
