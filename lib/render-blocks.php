@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Renders the Portfolio block
  */
-function render_portfolio_block( $attributes ) {
+function pawsome_render_portfolio_block( $attributes ) {
 
 	global $post;
 

@@ -18,7 +18,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-define( 'PLUGIN_VERSION', '0.1.0' );
+define( 'PAWSOME_PLUGIN_VERSION', '0.1.0' );
+define( 'PAWSOME_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 
 // Include function files
 require_once plugin_dir_path( __FILE__ ) . 'lib/register-post-types.php';

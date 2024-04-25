@@ -11,7 +11,6 @@ var __webpack_exports__ = {};
  */
 
 document.addEventListener('DOMContentLoaded', function () {
-  const buttonsContainer = document.querySelector('.pawsome-portfolio-tag-buttons'); // Adjust if your tags have a specific container
   const buttons = document.querySelectorAll('.pawsome-portfolio-tag-button');
   const items = document.querySelectorAll('.pawsome-portfolio-item');
   const clearButton = document.createElement('button');
@@ -28,17 +27,21 @@ document.addEventListener('DOMContentLoaded', function () {
       const tagId = parseInt(this.getAttribute('data-tag-id'));
       const index = selectedTags.indexOf(tagId);
       if (index > -1) {
-        selectedTags.splice(index, 1); // Remove tag from array
+        // Remove tag from array
+        selectedTags.splice(index, 1);
         this.classList.remove('active');
       } else {
-        selectedTags.push(tagId); // Add tag to array
+        // Add tag to array
+        selectedTags.push(tagId);
         this.classList.add('active');
       }
       filterPosts();
     });
   });
+
+  // Clear all selected tags
   clearButton.addEventListener('click', function () {
-    selectedTags = []; // Clear all selected tags
+    selectedTags = [];
     buttons.forEach(button => button.classList.remove('active'));
     items.forEach(item => item.style.display = '');
   });

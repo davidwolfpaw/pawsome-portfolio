@@ -40,5 +40,5 @@ registerBlockType(metadata.name, {
 	/**
 	 * PHP function for server-side rendering
 	 */
-	render_callback: 'render_portfolio_block',
+	render_callback: 'pawsome_render_portfolio_block',
 });

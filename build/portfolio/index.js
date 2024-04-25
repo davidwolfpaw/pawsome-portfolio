@@ -202,7 +202,7 @@ __webpack_require__.r(__webpack_exports__);
   /**
    * PHP function for server-side rendering
    */
-  render_callback: 'render_portfolio_block'
+  render_callback: 'pawsome_render_portfolio_block'
 });
 
 /***/ }),
@@ -345,7 +345,7 @@ module.exports = window["wp"]["i18n"];
   \**********************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"pawsome-portfolio/portfolio","version":"0.1.0","title":"Portfolio Tag Filter","category":"widgets","icon":"portfolio","description":"A Portfolio Block with Item sub-blocks that can then be tagged, and filtered by tag","example":{},"supports":{"html":false},"attributes":{"selected_category":{"type":"number","default":0},"show_featured_image":{"type":"boolean","default":true},"show_title":{"type":"boolean","default":true},"show_excerpt":{"type":"boolean","default":true},"show_publish_date":{"type":"boolean","default":false}},"textdomain":"pawsome-portfolio","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"pawsome-portfolio/portfolio","version":"0.1.0","title":"Pawsome Portfolio","category":"widgets","icon":"portfolio","description":"A Portfolio Block with Item sub-blocks that can then be tagged, and filtered by tag","keywords":["portfolio","projects","gallery"],"example":{},"supports":{"html":false},"attributes":{"selected_category":{"type":"number","default":0},"show_featured_image":{"type":"boolean","default":true},"is_linked":{"type":"boolean","default":true},"show_title":{"type":"boolean","default":true},"show_excerpt":{"type":"boolean","default":true},"show_publish_date":{"type":"boolean","default":false}},"textdomain":"pawsome-portfolio","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","render":"pawsome_render_portfolio_block"}');
 
 /***/ })
 
