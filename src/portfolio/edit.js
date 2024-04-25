@@ -13,6 +13,7 @@ import { __ } from '@wordpress/i18n';
  */
 import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
 import { PanelBody, SelectControl, ToggleControl } from '@wordpress/components';
+import ServerSideRender from '@wordpress/server-side-render';
 import { withSelect } from '@wordpress/data';
 import { useState } from '@wordpress/element';
 
@@ -34,6 +35,7 @@ import './editor.scss';
  */
 
 const Edit = ({ attributes, setAttributes, categories, className }) => {
+	const blockProps = useBlockProps();
 	const { selected_category, is_linked, show_featured_image, show_title, show_excerpt, show_publish_date } = attributes;
 
 	// Update the selected category
@@ -86,13 +88,10 @@ const Edit = ({ attributes, setAttributes, categories, className }) => {
 					/>
 				</PanelBody>
 			</InspectorControls>
-			<div>
-				{selected_category ? (
-					<p>Preview of posts in "{categories.find(cat => cat.id === selected_category)?.name}" will be shown here based on settings.</p>
-				) : (
-					<p>Select a category to see posts preview.</p>
-				)}
-			</div>
+			<ServerSideRender
+				block="pawsome-portfolio/portfolio"
+				attributes={attributes}
+			/>
 		</div>
 	);
 };
