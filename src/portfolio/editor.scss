@@ -8,3 +8,7 @@
 .wp-block[data-type="pawsome-portfolio/portfolio"] {
 	border: 1px dotted #f00;
 }
+
+.editor-styles-wrapper .pawsome-portfolio a {
+    pointer-events: none;
+}

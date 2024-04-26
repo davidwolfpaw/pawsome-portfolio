@@ -10,6 +10,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 function pawsome_render_portfolio_block( $attributes ) {
 
 	global $post;
+	$is_admin  = is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX );
+	$is_editor = isset( $_REQUEST['context'] ) && $_REQUEST['context'] === 'edit';
 
 	if ( empty( $attributes['selected_category'] ) ) {
 		return 'Please select a category.';
@@ -82,7 +84,7 @@ function pawsome_render_portfolio_block( $attributes ) {
 					$post_tags
 				);
 
-				if ( ! empty( $is_linked ) && $is_linked ) {
+				if ( ! empty( $is_linked ) ) {
 					$output .= '<a href="' . esc_url( $permalink ) . '" class="pawsome-portfolio-item-link">';
 				}
 				$output .= '<div class="pawsome-portfolio-item" data-tag-ids="' . esc_attr( wp_json_encode( $tag_ids ) ) . '">';
@@ -101,7 +103,7 @@ function pawsome_render_portfolio_block( $attributes ) {
 				}
 
 				$output .= '</div>';
-				if ( ! empty( $is_linked ) && $is_linked ) {
+				if ( ! empty( $is_linked ) ) {
 					$output .= '</a>';
 				}
 			}

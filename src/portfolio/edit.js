@@ -44,7 +44,7 @@ const Edit = ({ attributes, setAttributes, categories, className }) => {
 	};
 
 	return (
-		<div {...useBlockProps({ className })}>
+		<div {...blockProps}>
 			<InspectorControls>
 				<PanelBody title="Category Settings">
 					<SelectControl

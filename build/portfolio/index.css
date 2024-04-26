@@ -11,4 +11,8 @@
   border: 1px dotted #f00;
 }
 
+.editor-styles-wrapper .pawsome-portfolio a {
+  pointer-events: none;
+}
+
 /*# sourceMappingURL=index.css.map*/
