@@ -73,7 +73,6 @@ const Edit = ({
   const {
     selected_category,
     link_behavior,
-    is_linked,
     show_featured_image,
     show_title,
     show_excerpt,
@@ -124,12 +123,6 @@ const Edit = ({
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
     title: "Display Settings"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
-    label: "Link Portfolio Items",
-    checked: is_linked,
-    onChange: value => setAttributes({
-      is_linked: value
-    })
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
     label: "Show Featured Image",
     checked: show_featured_image,
     onChange: value => setAttributes({

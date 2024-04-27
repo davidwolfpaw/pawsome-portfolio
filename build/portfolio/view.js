@@ -58,23 +58,24 @@ document.addEventListener('DOMContentLoaded', function () {
       items.forEach(item => item.style.display = '');
     }
   }
-  portfolioItems.forEach(item => {
-    item.addEventListener('click', function () {
-      const postId = this.dataset.postId;
-      fetch(`/wp-json/wp/v2/pawsome_item/${postId}`).then(response => response.json()).then(post => {
-        showModal(post);
-      });
-    });
-  });
 
   // Build modal lightbox to display portfolio item content
   const portfolioContainer = document.querySelector('.pawsome-portfolio');
   const linkBehavior = portfolioContainer.getAttribute('data-link-behavior');
-  const modal = document.getElementById('pawsome-modal-container');
-  const closeButton = modal.querySelector('.close');
 
   // Only if the link behavior has been set to modal
   if (linkBehavior === 'modal') {
+    const modal = document.getElementById('pawsome-modal-container');
+    const closeButton = modal.querySelector('.close');
+    portfolioItems.forEach(item => {
+      item.addEventListener('click', function () {
+        const postId = this.dataset.postId;
+        fetch(`/wp-json/wp/v2/pawsome_item/${postId}`).then(response => response.json()).then(post => {
+          showModal(post);
+        });
+      });
+    });
+
     // Add click event listeners to each portfolio item
     portfolioItems.forEach(item => {
       item.addEventListener('click', function () {

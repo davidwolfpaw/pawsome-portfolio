@@ -18,7 +18,6 @@ function pawsome_render_portfolio_block( $attributes ) {
 	}
 
 	$selected_category   = $attributes['selected_category'];
-	$is_linked           = $attributes['is_linked'];
 	$show_featured_image = $attributes['show_featured_image'];
 	$show_title          = $attributes['show_title'];
 	$show_excerpt        = $attributes['show_excerpt'];
