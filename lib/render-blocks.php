@@ -11,7 +11,7 @@ function pawsome_render_portfolio_block( $attributes ) {
 
 	global $post;
 	$is_admin  = is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX );
-	$is_editor = isset( $_REQUEST['context'] ) && $_REQUEST['context'] === 'edit';
+	$is_editor = isset( $_REQUEST['context'] ) && 'edit' === $_REQUEST['context'];
 
 	if ( empty( $attributes['selected_category'] ) ) {
 		return 'Please select a category.';
@@ -24,7 +24,7 @@ function pawsome_render_portfolio_block( $attributes ) {
 	$show_excerpt        = $attributes['show_excerpt'];
 	$show_publish_date   = $attributes['show_publish_date'];
 
-	$output = '<div class="pawsome-portfolio">';
+	$output = '<div class="pawsome-portfolio" data-link-behavior="' . esc_attr( $attributes['link_behavior'] ) . '">';
 
 	$args  = array(
 		'post_type'      => 'pawsome_item',
@@ -75,7 +75,9 @@ function pawsome_render_portfolio_block( $attributes ) {
 		while ( $query->have_posts() ) {
 			$query->the_post();
 			$permalink = get_permalink();
+			$post_id   = get_the_ID();
 			$post_tags = get_the_terms( get_the_ID(), 'pawsome_tag' );
+
 			if ( ! is_wp_error( $post_tags ) && ! empty( $post_tags ) ) {
 				$tag_ids = array_map(
 					function ( $tag ) {
@@ -83,33 +85,38 @@ function pawsome_render_portfolio_block( $attributes ) {
 					},
 					$post_tags
 				);
+			}
 
-				if ( ! empty( $is_linked ) ) {
-					$output .= '<a href="' . esc_url( $permalink ) . '" class="pawsome-portfolio-item-link">';
-				}
-				$output .= '<div class="pawsome-portfolio-item" data-tag-ids="' . esc_attr( wp_json_encode( $tag_ids ) ) . '">';
+			if ( 'page' === $attributes['link_behavior'] ) {
+				$output .= '<a href="' . esc_url( $permalink ) . '" class="pawsome-portfolio-item-link">';
+			}
+			$output .= '<div class="pawsome-portfolio-item" data-post-id="' . esc_attr( $post_id ) . '" data-tag-ids="' . esc_attr( wp_json_encode( $tag_ids ) ) . '">';
 
-				if ( $show_featured_image ) {
-					$output .= get_the_post_thumbnail( get_the_ID(), 'thumbnail' );
-				}
-				if ( $show_title ) {
-					$output .= '<h2>' . get_the_title() . '</h2>';
-				}
-				if ( $show_excerpt ) {
-					$output .= '<p>' . get_the_excerpt() . '</p>';
-				}
-				if ( $show_publish_date ) {
-					$output .= '<p>' . get_the_date() . '</p>';
-				}
+			if ( $show_featured_image ) {
+				$output .= get_the_post_thumbnail( $post_id, 'thumbnail' );
+			}
+			if ( $show_title ) {
+				$output .= '<h2>' . get_the_title() . '</h2>';
+			}
+			if ( $show_excerpt ) {
+				$output .= '<p>' . get_the_excerpt() . '</p>';
+			}
+			if ( $show_publish_date ) {
+				$output .= '<p>' . get_the_date() . '</p>';
+			}
 
-				$output .= '</div>';
-				if ( ! empty( $is_linked ) ) {
-					$output .= '</a>';
-				}
+			$output .= '</div>';
+			if ( 'page' === $attributes['link_behavior'] ) {
+				$output .= '</a>';
 			}
 		}
 		$output .= '</div>';
 		wp_reset_postdata();
+	}
+
+	// Modal container
+	if ( 'modal' === $attributes['link_behavior'] ) {
+		$output .= '<div id="pawsome-modal-container"><div id="pawsome-modal"><span class="close">&times;</span><div class="pawsome-modal-content"></div></div></div>';
 	}
 
 	$output .= '</div>';

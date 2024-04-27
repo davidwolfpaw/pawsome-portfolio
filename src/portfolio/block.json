@@ -18,11 +18,11 @@
             "type": "number",
             "default": 0
         },
+		"link_behavior": {
+			"type": "string",
+			"default": "none"
+		},
         "show_featured_image": {
-            "type": "boolean",
-            "default": true
-        },
-        "is_linked": {
             "type": "boolean",
             "default": true
         },

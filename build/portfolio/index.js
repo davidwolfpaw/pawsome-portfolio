@@ -67,12 +67,12 @@ __webpack_require__.r(__webpack_exports__);
 const Edit = ({
   attributes,
   setAttributes,
-  categories,
-  className
+  categories
 }) => {
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)();
   const {
     selected_category,
+    link_behavior,
     is_linked,
     show_featured_image,
     show_title,
@@ -103,6 +103,24 @@ const Edit = ({
       value: category.id
     }))],
     onChange: updateCategory
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: "Link Settings"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
+    label: "Link Behavior",
+    value: link_behavior,
+    options: [{
+      label: 'None',
+      value: 'none'
+    }, {
+      label: 'Link to Page',
+      value: 'page'
+    }, {
+      label: 'Open as Modal',
+      value: 'modal'
+    }],
+    onChange: value => setAttributes({
+      link_behavior: value
+    })
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
     title: "Display Settings"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
@@ -360,7 +378,7 @@ module.exports = window["wp"]["serverSideRender"];
   \**********************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"pawsome-portfolio/portfolio","version":"0.1.0","title":"Pawsome Portfolio","category":"widgets","icon":"portfolio","description":"A Portfolio Block with Item sub-blocks that can then be tagged, and filtered by tag","keywords":["portfolio","projects","gallery"],"example":{},"supports":{"html":false},"attributes":{"selected_category":{"type":"number","default":0},"show_featured_image":{"type":"boolean","default":true},"is_linked":{"type":"boolean","default":true},"show_title":{"type":"boolean","default":true},"show_excerpt":{"type":"boolean","default":true},"show_publish_date":{"type":"boolean","default":false}},"textdomain":"pawsome-portfolio","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","render":"pawsome_render_portfolio_block"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"pawsome-portfolio/portfolio","version":"0.1.0","title":"Pawsome Portfolio","category":"widgets","icon":"portfolio","description":"A Portfolio Block with Item sub-blocks that can then be tagged, and filtered by tag","keywords":["portfolio","projects","gallery"],"example":{},"supports":{"html":false},"attributes":{"selected_category":{"type":"number","default":0},"link_behavior":{"type":"string","default":"none"},"show_featured_image":{"type":"boolean","default":true},"show_title":{"type":"boolean","default":true},"show_excerpt":{"type":"boolean","default":true},"show_publish_date":{"type":"boolean","default":false}},"textdomain":"pawsome-portfolio","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","render":"pawsome_render_portfolio_block"}');
 
 /***/ })
 

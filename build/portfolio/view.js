@@ -11,8 +11,8 @@ var __webpack_exports__ = {};
  */
 
 document.addEventListener('DOMContentLoaded', function () {
+  const portfolioItems = document.querySelectorAll('.pawsome-portfolio-item');
   const buttons = document.querySelectorAll('.pawsome-portfolio-tag-button');
-  const items = document.querySelectorAll('.pawsome-portfolio-item');
   const clearButton = document.createElement('button');
   clearButton.textContent = 'Clear Tags';
   clearButton.className = 'clear-tags-button';
@@ -43,11 +43,13 @@ document.addEventListener('DOMContentLoaded', function () {
   clearButton.addEventListener('click', function () {
     selectedTags = [];
     buttons.forEach(button => button.classList.remove('active'));
-    items.forEach(item => item.style.display = '');
+    portfolioItems.forEach(item => item.style.display = '');
   });
+
+  // Filter posts based on selected tags
   function filterPosts() {
     if (selectedTags.length > 0) {
-      items.forEach(item => {
+      portfolioItems.forEach(item => {
         const tags = JSON.parse(item.getAttribute('data-tag-ids'));
         const isMatch = tags.some(tag => selectedTags.includes(tag));
         item.style.display = isMatch ? '' : 'none';
@@ -55,6 +57,69 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
       items.forEach(item => item.style.display = '');
     }
+  }
+  portfolioItems.forEach(item => {
+    item.addEventListener('click', function () {
+      const postId = this.dataset.postId;
+      fetch(`/wp-json/wp/v2/pawsome_item/${postId}`).then(response => response.json()).then(post => {
+        showModal(post);
+      });
+    });
+  });
+
+  // Build modal lightbox to display portfolio item content
+  const portfolioContainer = document.querySelector('.pawsome-portfolio');
+  const linkBehavior = portfolioContainer.getAttribute('data-link-behavior');
+  const modal = document.getElementById('pawsome-modal-container');
+  const closeButton = modal.querySelector('.close');
+
+  // Only if the link behavior has been set to modal
+  if (linkBehavior === 'modal') {
+    // Add click event listeners to each portfolio item
+    portfolioItems.forEach(item => {
+      item.addEventListener('click', function () {
+        const postId = this.dataset.postId;
+        fetch(`/wp-json/wp/v2/pawsome_item/${postId}`).then(response => response.json()).then(post => {
+          showModal(post);
+        });
+      });
+    });
+    let lastFocusedElement;
+
+    // Function to open the modal
+    function showModal(post) {
+      lastFocusedElement = document.activeElement; // Save the currently focused element
+      const modalContent = modal.querySelector('.pawsome-modal-content');
+      modalContent.innerHTML = `<h1>${post.title.rendered}</h1>${post.content.rendered}`;
+      modal.style.display = 'flex';
+      modalContent.focus(); // Set focus to the modal content or a focusable element within it
+    }
+
+    // Function to close the modal
+    function closeModal() {
+      modal.style.display = 'none';
+      if (lastFocusedElement) {
+        // Return focus to the element that opened the modal
+        lastFocusedElement.focus();
+      }
+    }
+
+    // Event listener for close button
+    closeButton.addEventListener('click', closeModal);
+
+    // Event listener for escape key
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        closeModal();
+      }
+    });
+
+    // Event listener for clicking anywhere outside of the modal content
+    modal.addEventListener('click', function (event) {
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
   }
 });
 /******/ })()

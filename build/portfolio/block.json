@@ -21,11 +21,11 @@
       "type": "number",
       "default": 0
     },
-    "show_featured_image": {
-      "type": "boolean",
-      "default": true
+    "link_behavior": {
+      "type": "string",
+      "default": "none"
     },
-    "is_linked": {
+    "show_featured_image": {
       "type": "boolean",
       "default": true
     },

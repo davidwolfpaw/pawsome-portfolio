@@ -34,9 +34,9 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 
-const Edit = ({ attributes, setAttributes, categories, className }) => {
+const Edit = ({ attributes, setAttributes, categories }) => {
 	const blockProps = useBlockProps();
-	const { selected_category, is_linked, show_featured_image, show_title, show_excerpt, show_publish_date } = attributes;
+	const { selected_category, link_behavior, is_linked, show_featured_image, show_title, show_excerpt, show_publish_date } = attributes;
 
 	// Update the selected category
 	const updateCategory = (selected_category) => {
@@ -60,6 +60,20 @@ const Edit = ({ attributes, setAttributes, categories, className }) => {
 						onChange={updateCategory}
 					/>
 				</PanelBody>
+
+				<PanelBody title="Link Settings">
+					<SelectControl
+						label="Link Behavior"
+						value={link_behavior}
+						options={[
+							{ label: 'None', value: 'none' },
+							{ label: 'Link to Page', value: 'page' },
+							{ label: 'Open as Modal', value: 'modal' }
+						]}
+						onChange={(value) => setAttributes({ link_behavior: value })}
+					/>
+				</PanelBody>
+
 				<PanelBody title="Display Settings">
 					<ToggleControl
 						label="Link Portfolio Items"

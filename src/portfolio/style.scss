@@ -22,3 +22,41 @@
 .pawsome-portfolio .pawsome-portfolio-tag-button {
     margin-right: 5px;
 }
+
+#pawsome-modal-container {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+	justify-content: center;
+	align-items: center;
+    background-color: rgba(0,0,0,0.5);
+}
+
+#pawsome-modal {
+    background-color: #ffffff;
+	margin-inline: auto;
+    padding: 2rem;
+    max-width: fit-content;
+}
+
+#pawsome-modal .modal-content {
+}
+
+#pawsome-modal .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#pawsome-modal .close:hover,
+#pawsome-modal .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
