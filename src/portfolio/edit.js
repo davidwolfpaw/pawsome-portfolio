@@ -37,7 +37,7 @@ import './editor.scss';
 
 const Edit = ({ attributes, setAttributes, categories }) => {
 	const blockProps = useBlockProps();
-	const { selected_category, link_behavior, show_tags, show_featured_image, show_title, show_excerpt, show_publish_date, show_modified_date } = attributes;
+	const { selected_category, link_behavior, use_filter_tags, show_featured_image, show_title, show_excerpt, show_tags, show_publish_date, show_modified_date } = attributes;
 
 	// Update the selected category
 	const updateCategory = (selected_category) => {
@@ -77,9 +77,9 @@ const Edit = ({ attributes, setAttributes, categories }) => {
 
 				<PanelBody title="Display Settings">
 					<ToggleControl
-						label="Show Tags"
-						checked={show_tags}
-						onChange={(value) => setAttributes({ show_tags: value })}
+						label="Display Filter Tags"
+						checked={use_filter_tags}
+						onChange={(value) => setAttributes({ use_filter_tags: value })}
 					/>
 					<ToggleControl
 						label="Show Featured Image"
@@ -95,6 +95,11 @@ const Edit = ({ attributes, setAttributes, categories }) => {
 						label="Show Excerpt"
 						checked={show_excerpt}
 						onChange={(value) => setAttributes({ show_excerpt: value })}
+					/>
+					<ToggleControl
+						label="Show Tags"
+						checked={show_tags}
+						onChange={(value) => setAttributes({ show_tags: value })}
 					/>
 					<ToggleControl
 						label="Show Publish Date"

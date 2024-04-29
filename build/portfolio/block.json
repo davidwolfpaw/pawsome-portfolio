@@ -25,7 +25,7 @@
       "type": "string",
       "default": "none"
     },
-    "show_tags": {
+    "use_filter_tags": {
       "type": "boolean",
       "default": true
     },
@@ -38,6 +38,10 @@
       "default": true
     },
     "show_excerpt": {
+      "type": "boolean",
+      "default": true
+    },
+    "show_tags": {
       "type": "boolean",
       "default": true
     },

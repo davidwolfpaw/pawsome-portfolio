@@ -18,10 +18,11 @@ function pawsome_render_portfolio_block( $attributes ) {
 	}
 
 	$selected_category   = $attributes['selected_category'];
-	$show_tags           = $attributes['show_tags'];
+	$use_filter_tags     = $attributes['use_filter_tags'];
 	$show_featured_image = $attributes['show_featured_image'];
 	$show_title          = $attributes['show_title'];
 	$show_excerpt        = $attributes['show_excerpt'];
+	$show_tags           = $attributes['show_tags'];
 	$show_publish_date   = $attributes['show_publish_date'];
 	$show_modified_date  = $attributes['show_modified_date'];
 
@@ -40,7 +41,7 @@ function pawsome_render_portfolio_block( $attributes ) {
 	);
 	$query = new WP_Query( $args );
 
-	if ( $show_tags ) {
+	if ( $use_filter_tags ) {
 		$tags = array();
 
 		if ( $query->have_posts() ) {
@@ -104,6 +105,17 @@ function pawsome_render_portfolio_block( $attributes ) {
 			}
 			if ( $show_excerpt ) {
 				$output .= '<p>' . get_the_excerpt() . '</p>';
+			}
+			if ( $show_tags ) {
+				// Fetch and display tags
+				$tags = get_the_terms( $post_id, 'pawsome_tag' );  // Adjust the taxonomy if you use a custom taxonomy
+				if ( ! empty( $tags ) && ! is_wp_error( $tags ) ) {
+					$output .= '<div class="portfolio-tags">';
+					foreach ( $tags as $tag ) {
+						$output .= '<span class="tag">' . esc_html( $tag->name ) . '</span> ';
+					}
+					$output .= '</div>';
+				}
 			}
 			if ( $show_publish_date ) {
 				$output .= '<p>' . get_the_date() . '</p>';
