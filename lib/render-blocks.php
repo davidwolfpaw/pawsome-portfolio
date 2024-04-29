@@ -23,7 +23,7 @@ function pawsome_render_portfolio_block( $attributes ) {
 	$show_excerpt        = $attributes['show_excerpt'];
 	$show_publish_date   = $attributes['show_publish_date'];
 
-	$output = '<div class="pawsome-portfolio" data-link-behavior="' . esc_attr( $attributes['link_behavior'] ) . '">';
+	$output = '<div class="pawsome-portfolio ' . $attributes['className'] . '" data-link-behavior="' . esc_attr( $attributes['link_behavior'] ) . '">';
 
 	$args  = array(
 		'post_type'      => 'pawsome_item',

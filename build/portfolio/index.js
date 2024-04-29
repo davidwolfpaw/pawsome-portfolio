@@ -47,6 +47,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -221,6 +222,20 @@ __webpack_require__.r(__webpack_exports__);
   render_callback: 'pawsome_render_portfolio_block'
 });
 
+/**
+ * Create Block Styles
+ */
+wp.blocks.registerBlockStyle(_block_json__WEBPACK_IMPORTED_MODULE_4__.name, [{
+  name: 'portfolio-card',
+  label: 'Card',
+  description: 'Display the portfolio item as a card with a featured image.',
+  isDefault: true
+}, {
+  name: 'portfolio-list',
+  label: 'List',
+  description: 'Display the portfolio item in a list view without a featured image.'
+}]);
+
 /***/ }),
 
 /***/ "./src/portfolio/save.js":
@@ -233,17 +248,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
-/**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
- */
-// import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
-
-
 /**
  * The save function defines the way in which the different attributes should
  * be combined into the final markup, which is then serialized by the block

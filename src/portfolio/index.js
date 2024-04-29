@@ -42,3 +42,20 @@ registerBlockType(metadata.name, {
 	 */
 	render_callback: 'pawsome_render_portfolio_block',
 });
+
+/**
+ * Create Block Styles
+ */
+wp.blocks.registerBlockStyle(metadata.name, [
+	{
+		name: 'portfolio-card',
+		label: 'Card',
+		description: 'Display the portfolio item as a card with a featured image.',
+		isDefault: true,
+	},
+	{
+		name: 'portfolio-list',
+		label: 'List',
+		description: 'Display the portfolio item in a list view without a featured image.',
+	}
+]);
