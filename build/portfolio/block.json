@@ -25,6 +25,10 @@
       "type": "string",
       "default": "none"
     },
+    "show_tags": {
+      "type": "boolean",
+      "default": true
+    },
     "show_featured_image": {
       "type": "boolean",
       "default": true

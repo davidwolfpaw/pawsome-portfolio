@@ -18,6 +18,7 @@ function pawsome_render_portfolio_block( $attributes ) {
 	}
 
 	$selected_category   = $attributes['selected_category'];
+	$show_tags           = $attributes['show_tags'];
 	$show_featured_image = $attributes['show_featured_image'];
 	$show_title          = $attributes['show_title'];
 	$show_excerpt        = $attributes['show_excerpt'];
@@ -37,35 +38,38 @@ function pawsome_render_portfolio_block( $attributes ) {
 		),
 	);
 	$query = new WP_Query( $args );
-	$tags  = array();
 
-	if ( $query->have_posts() ) {
-		while ( $query->have_posts() ) {
-			$query->the_post();
-			$post_tags = get_the_terms( get_the_ID(), 'pawsome_tag' );
-			if ( ! is_wp_error( $post_tags ) && ! empty( $post_tags ) ) {
-				foreach ( $post_tags as $post_tag ) {
-					if ( ! isset( $tags[ $post_tag->term_id ] ) ) {
-						$tags[ $post_tag->term_id ] = array(
-							'name'  => $post_tag->name,
-							'count' => 0,
-						);
+	if ( $show_tags ) {
+		$tags = array();
+
+		if ( $query->have_posts() ) {
+			while ( $query->have_posts() ) {
+				$query->the_post();
+				$post_tags = get_the_terms( get_the_ID(), 'pawsome_tag' );
+				if ( ! is_wp_error( $post_tags ) && ! empty( $post_tags ) ) {
+					foreach ( $post_tags as $post_tag ) {
+						if ( ! isset( $tags[ $post_tag->term_id ] ) ) {
+							$tags[ $post_tag->term_id ] = array(
+								'name'  => $post_tag->name,
+								'count' => 0,
+							);
+						}
+						++$tags[ $post_tag->term_id ]['count'];
 					}
-					++$tags[ $post_tag->term_id ]['count'];
 				}
 			}
+			wp_reset_postdata();
 		}
-		wp_reset_postdata();
-	}
 
-	// Display tags as buttons
-	if ( ! empty( $tags ) ) {
-		$output .= '<div class="pawsome-portfolio-tag-buttons">';
-		foreach ( $tags as $tag_id => $tag_info ) {
-			$output .= '<button class="pawsome-portfolio-tag-button" data-tag-id="' . esc_attr( $tag_id ) . '">'
+		// Display tags as buttons
+		if ( ! empty( $tags ) ) {
+			$output .= '<div class="pawsome-portfolio-tag-buttons">';
+			foreach ( $tags as $tag_id => $tag_info ) {
+				$output .= '<button class="pawsome-portfolio-tag-button" data-tag-id="' . esc_attr( $tag_id ) . '">'
 				. esc_html( $tag_info['name'] ) . ' (' . $tag_info['count'] . ')</button>';
+			}
+			$output .= '</div>';
 		}
-		$output .= '</div>';
 	}
 
 	// Display posts
