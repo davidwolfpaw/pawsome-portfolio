@@ -37,7 +37,7 @@ import './editor.scss';
 
 const Edit = ({ attributes, setAttributes, categories }) => {
 	const blockProps = useBlockProps();
-	const { selected_category, link_behavior, show_tags, show_featured_image, show_title, show_excerpt, show_publish_date } = attributes;
+	const { selected_category, link_behavior, show_tags, show_featured_image, show_title, show_excerpt, show_publish_date, show_modified_date } = attributes;
 
 	// Update the selected category
 	const updateCategory = (selected_category) => {
@@ -100,6 +100,11 @@ const Edit = ({ attributes, setAttributes, categories }) => {
 						label="Show Publish Date"
 						checked={show_publish_date}
 						onChange={(value) => setAttributes({ show_publish_date: value })}
+					/>
+					<ToggleControl
+						label="Show Modified Date"
+						checked={show_modified_date}
+						onChange={(value) => setAttributes({ show_modified_date: value })}
 					/>
 				</PanelBody>
 			</InspectorControls>

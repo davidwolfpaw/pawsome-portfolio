@@ -23,6 +23,7 @@ function pawsome_render_portfolio_block( $attributes ) {
 	$show_title          = $attributes['show_title'];
 	$show_excerpt        = $attributes['show_excerpt'];
 	$show_publish_date   = $attributes['show_publish_date'];
+	$show_modified_date  = $attributes['show_modified_date'];
 
 	$output = '<div class="pawsome-portfolio ' . $attributes['className'] . '" data-link-behavior="' . esc_attr( $attributes['link_behavior'] ) . '">';
 
@@ -106,6 +107,9 @@ function pawsome_render_portfolio_block( $attributes ) {
 			}
 			if ( $show_publish_date ) {
 				$output .= '<p>' . get_the_date() . '</p>';
+			}
+			if ( $show_modified_date ) {
+				$output .= '<p>' . get_the_modified_date() . '</p>';
 			}
 
 			$output .= '</div>';

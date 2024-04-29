@@ -44,6 +44,10 @@
     "show_publish_date": {
       "type": "boolean",
       "default": false
+    },
+    "show_modified_date": {
+      "type": "boolean",
+      "default": false
     }
   },
   "textdomain": "pawsome-portfolio",
