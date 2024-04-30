@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				item.style.display = isMatch ? '' : 'none';
 			});
 		} else {
-			items.forEach(item => item.style.display = '');
+			portfolioItems.forEach(item => item.style.display = '');
 		}
 	}
 
@@ -66,18 +66,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	if (linkBehavior === 'modal') {
 		const modal = document.getElementById('pawsome-modal-container');
 		const closeButton = modal.querySelector('.close');
-
-
-		portfolioItems.forEach(item => {
-			item.addEventListener('click', function () {
-				const postId = this.dataset.postId;
-				fetch(`/wp-json/wp/v2/pawsome_item/${postId}`)
-					.then(response => response.json())
-					.then(post => {
-						showModal(post);
-					});
-			});
-		});
 
 		// Add click event listeners to each portfolio item
 		portfolioItems.forEach(item => {
@@ -94,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		let lastFocusedElement;
 
 		// Function to open the modal
-		function showModal(post) {
+		async function showModal(post) {
 			lastFocusedElement = document.activeElement; // Save the currently focused element
 			const modalContent = modal.querySelector('.pawsome-modal-content');
 			modalContent.innerHTML = `<h1>${post.title.rendered}</h1>${post.content.rendered}`;

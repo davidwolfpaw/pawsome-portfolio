@@ -1,62 +1,176 @@
 /**
  * The following styles get applied both on the front of your site
  * and in the editor.
- *
- * Replace them with your own styles or remove the file completely.
  */
 
-.pawsome-portfolio .pawsome-portfolio-items {
+/* Filter Tags */
+.pawsome-portfolio-tag-buttons {
 	display: flex;
-}
-
-.pawsome-portfolio .clear-tags-button {
-    margin-left: 10px;
-    cursor: pointer;
-}
-
-.pawsome-portfolio .pawsome-portfolio-tag-button.active {
-    background-color: #0073aa;
-    color: white;
+	gap: 10px;
+	margin-bottom: 10px;
 }
 
 .pawsome-portfolio .pawsome-portfolio-tag-button {
-    margin-right: 5px;
+	background-color: #a5f65f;
+	border: none;
+	border-radius: 5px;
+	padding: 4px 8px;
+	font-weight: 500;
 }
 
+.pawsome-portfolio .pawsome-portfolio-tag-button.active {
+	background-color: #0073aa;
+	color: white;
+}
+
+.pawsome-portfolio .clear-tags-button {
+	margin-left: 10px;
+	cursor: pointer;
+}
+
+
+/* Modal Lightbox */
 #pawsome-modal-container {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
 	justify-content: center;
 	align-items: center;
-    background-color: rgba(0,0,0,0.5);
+	background-color: rgba(0, 0, 0, 0.5);
 }
 
 #pawsome-modal {
-    background-color: #ffffff;
+	background-color: #ffffff;
 	margin-inline: auto;
-    padding: 2rem;
-    max-width: fit-content;
-}
-
-#pawsome-modal .modal-content {
+	padding: 2rem;
+	max-width: fit-content;
 }
 
 #pawsome-modal .close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+	color: #aaaaaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
 }
 
 #pawsome-modal .close:hover,
 #pawsome-modal .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+
+/* Card Style */
+.pawsome-portfolio.is-style-portfolio-card .pawsome-portfolio-items {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 20px;
+	color: #fff;
+}
+
+.pawsome-portfolio.is-style-portfolio-card .pawsome-portfolio-item-link {
+	color: #fff;
+}
+ ::-webkit-scrollbar-track {
+ background: transparent;
+}
+.pawsome-portfolio.is-style-portfolio-card .pawsome-background {
+	height: 360px;
+	padding: 10px;
+	background-size: cover;
+	background-position: center center;
+	position: relative;
+	overflow: hidden;
+}
+
+.pawsome-portfolio.is-style-portfolio-card .card-overlay {
+	background-color: rgba(0, 0, 0, 0.7);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	transition: background-color 0.3s;
+}
+
+.pawsome-portfolio.is-style-portfolio-card .pawsome-content {
+	display: grid;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -40%);
+	text-align: center;
+	width: 100%;
+	height: calc(100% - 40px);
+	padding: 10px;
+	box-sizing: border-box;
+	transition: transform 0.3s ease;
+	overflow: hidden;
+}
+
+.pawsome-portfolio.is-style-portfolio-card .pawsome-title {
+	margin: 0;
+}
+
+.pawsome-portfolio.is-style-portfolio-card .pawsome-title::after {
+	content: " ";
+	display: block;
+	width: 10%;
+	height: 2px;
+	margin: 20px auto;
+	border: 0;
+	background: #a5f65f;
+	transition: all 0.3s ease-in-out;
+}
+
+.pawsome-portfolio.is-style-portfolio-card .pawsome-excerpt {
+	padding: 0;
+	margin: 0;
+	opacity: 0;
+	transition: opacity 0.3s ease-in-out;
+}
+
+.pawsome-portfolio.is-style-portfolio-card .pawsome-portfolio-item:hover .card-overlay {
+	background-color: rgba(0, 0, 0, 0.85);
+}
+
+.pawsome-portfolio.is-style-portfolio-card .pawsome-portfolio-item:hover .pawsome-content {
+	transform: translate(-50%, -60%);
+}
+
+.pawsome-portfolio.is-style-portfolio-card .pawsome-portfolio-item:hover .pawsome-title {
+	text-shadow: 0px 4px 10px #000;
+}
+
+.pawsome-portfolio.is-style-portfolio-card .pawsome-portfolio-item:hover .pawsome-excerpt {
+	opacity: 1;
+}
+
+.pawsome-portfolio.is-style-portfolio-card .pawsome-portfolio-item:hover .pawsome-title::after {
+	width: 50%;
+}
+
+.pawsome-portfolio.is-style-portfolio-card .pawsome-meta {
+	position: absolute;
+	bottom: 0;
+	font-size: 0.8em;
+}
+
+.pawsome-portfolio.is-style-portfolio-card .pawsome-tags {
+	margin-bottom: 10px;
+}
+
+.pawsome-portfolio.is-style-portfolio-card .pawsome-tag {
+	padding: 2px 4px;
+	border-radius: 5px;
+	background-color: #a5f65f;
+	color: #000;
 }

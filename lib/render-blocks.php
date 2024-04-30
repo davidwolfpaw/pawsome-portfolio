@@ -83,6 +83,7 @@ function pawsome_render_portfolio_block( $attributes ) {
 			$post_id   = get_the_ID();
 			$post_tags = get_the_terms( get_the_ID(), 'pawsome_tag' );
 
+			// Gets IDs of tags attached to portfolio items for filtering
 			if ( ! is_wp_error( $post_tags ) && ! empty( $post_tags ) ) {
 				$tag_ids = array_map(
 					function ( $tag ) {
@@ -92,44 +93,62 @@ function pawsome_render_portfolio_block( $attributes ) {
 				);
 			}
 
+			$output .= '<div class="pawsome-portfolio-item" data-post-id="' . esc_attr( $post_id ) . '" data-tag-ids="' . esc_attr( wp_json_encode( $tag_ids ) ) . '">';
+
+			// Wrap everything in a link to make the full item clickable
 			if ( 'page' === $attributes['link_behavior'] ) {
 				$output .= '<a href="' . esc_url( $permalink ) . '" class="pawsome-portfolio-item-link">';
 			}
-			$output .= '<div class="pawsome-portfolio-item" data-post-id="' . esc_attr( $post_id ) . '" data-tag-ids="' . esc_attr( wp_json_encode( $tag_ids ) ) . '">';
 
 			if ( $show_featured_image ) {
-				$output .= get_the_post_thumbnail( $post_id, 'thumbnail' );
+				$image_url = get_the_post_thumbnail_url( $post_id, 'large' );
+				$output   .= '<div class="pawsome-background" style="background-image: url(\'' . esc_url( $image_url ) . '\');">';
+				$output   .= '<div class="card-overlay"></div>';
+			} else {
+				$output .= '<div>';
 			}
+
+			$output .= '<div class="pawsome-content">';
 			if ( $show_title ) {
-				$output .= '<h2>' . get_the_title() . '</h2>';
+				$output .= '<h2 class="pawsome-title">' . get_the_title() . '</h2>';
 			}
 			if ( $show_excerpt ) {
-				$output .= '<p>' . get_the_excerpt() . '</p>';
+				$output .= '<p class="pawsome-excerpt">' . get_the_excerpt() . '</p>';
 			}
+			$output .= '</div>'; // .pawsome-content
+
+			$output .= '<div class="pawsome-meta">';
+			// Date display logic - If Modified is selected, show only that, even if published is selected too
+			if ( $show_publish_date && ! $show_modified_date ) {
+				$publish_date = get_the_date();
+				$output      .= '<span class="publish-date">' . esc_html( $publish_date ) . '</span>';
+			} elseif ( $show_modified_date ) {
+				$modified_date = get_the_modified_date();
+				$output       .= '<span class="publish-date modified-date">' . esc_html( $modified_date ) . '</span>';
+			}
+
+			// Display tags on portfolio item
 			if ( $show_tags ) {
-				// Fetch and display tags
 				$tags = get_the_terms( $post_id, 'pawsome_tag' );  // Adjust the taxonomy if you use a custom taxonomy
 				if ( ! empty( $tags ) && ! is_wp_error( $tags ) ) {
-					$output .= '<div class="portfolio-tags">';
+					$output .= '<div class="pawsome-tags">';
 					foreach ( $tags as $tag ) {
-						$output .= '<span class="tag">' . esc_html( $tag->name ) . '</span> ';
+						$output .= '<span class="pawsome-tag">' . esc_html( $tag->name ) . '</span> ';
 					}
 					$output .= '</div>';
 				}
 			}
-			if ( $show_publish_date ) {
-				$output .= '<p>' . get_the_date() . '</p>';
-			}
-			if ( $show_modified_date ) {
-				$output .= '<p>' . get_the_modified_date() . '</p>';
-			}
+			$output .= '</div>'; // .pawsome-meta
 
-			$output .= '</div>';
+			$output .= '</div>'; // .pawsome-background
+
 			if ( 'page' === $attributes['link_behavior'] ) {
 				$output .= '</a>';
 			}
+
+			$output .= '</div>'; // .pawsome-portfolio-item
 		}
-		$output .= '</div>';
+		$output .= '</div>'; // .pawsome-portfolio-items
 		wp_reset_postdata();
 	}
 
@@ -141,3 +160,13 @@ function pawsome_render_portfolio_block( $attributes ) {
 	$output .= '</div>';
 	return $output;
 }
+
+/**
+ * Makes excerpt length maximum of 10 words
+ */
+add_filter(
+	'excerpt_length',
+	function () {
+		return 10;
+	}
+);
