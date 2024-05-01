@@ -49,15 +49,29 @@
   background-color: #ffffff;
   margin-inline: auto;
   padding: 2rem;
-  max-width: -moz-fit-content;
-  max-width: fit-content;
+  position: relative;
+  max-width: 80vw;
+  max-height: 80vh;
+  overflow-x: scroll;
+}
+
+#pawsome-modal h2 {
+  text-align: center;
+}
+
+#pawsome-modal img {
+  display: block;
+  margin: 0 auto;
 }
 
 #pawsome-modal .close {
   color: #aaaaaa;
-  float: right;
-  font-size: 28px;
+  font-size: 36px;
   font-weight: bold;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  line-height: 1;
 }
 
 #pawsome-modal .close:hover,

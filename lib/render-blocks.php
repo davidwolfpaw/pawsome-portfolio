@@ -154,7 +154,7 @@ function pawsome_render_portfolio_block( $attributes ) {
 
 	// Modal container
 	if ( 'modal' === $attributes['link_behavior'] ) {
-		$output .= '<div id="pawsome-modal-container"><div id="pawsome-modal"><span class="close">&times;</span><div class="pawsome-modal-content"></div></div></div>';
+		$output .= '<div id="pawsome-modal-container"><div id="pawsome-modal"><span class="close">&#8855;</span><div class="pawsome-modal-content"></div></div></div>';
 	}
 
 	$output .= '</div>';
@@ -170,3 +170,25 @@ add_filter(
 		return 10;
 	}
 );
+
+/**
+ * Get featured image of portfolio item for modal
+ */
+function add_featured_image_to_api_response() {
+	register_rest_field(
+		'pawsome_item',
+		'featured_image_src',
+		array(
+			'get_callback' => function ( $post_arr ) {
+				$image_src_arr = wp_get_attachment_image_src( $post_arr['featured_media'], 'medium' );
+				return $image_src_arr ? $image_src_arr[0] : false;
+			},
+			'schema'       => array(
+				'description' => 'Featured image source URL',
+				'type'        => 'string',
+				'context'     => array( 'view' ),
+			),
+		)
+	);
+}
+add_action( 'rest_api_init', 'add_featured_image_to_api_response' );

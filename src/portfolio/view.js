@@ -85,9 +85,13 @@ document.addEventListener('DOMContentLoaded', function () {
 		async function showModal(post) {
 			lastFocusedElement = document.activeElement; // Save the currently focused element
 			const modalContent = modal.querySelector('.pawsome-modal-content');
-			modalContent.innerHTML = `<h1>${post.title.rendered}</h1>${post.content.rendered}`;
+			modalContent.innerHTML = `
+	            <h2>${post.title.rendered}</h2>
+	            ${post.featured_image_src ? `<img src="${post.featured_image_src}" alt="${post.title.rendered}">` : ''}
+	            <p>${post.content.rendered}</p>
+	        `;
 			modal.style.display = 'flex';
-			modalContent.focus(); // Set focus to the modal content or a focusable element within it
+			modalContent.focus();
 		}
 
 		// Function to close the modal
