@@ -93,10 +93,6 @@
   color: #fff;
 }
 
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
 .pawsome-portfolio.is-style-portfolio-card .pawsome-background {
   height: 360px;
   padding: 10px;

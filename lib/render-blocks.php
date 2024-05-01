@@ -103,11 +103,11 @@ function pawsome_render_portfolio_block( $attributes ) {
 			if ( $show_featured_image ) {
 				$image_url = get_the_post_thumbnail_url( $post_id, 'large' );
 				$output   .= '<div class="pawsome-background" style="background-image: url(\'' . esc_url( $image_url ) . '\');">';
-				$output   .= '<div class="card-overlay"></div>';
 			} else {
-				$output .= '<div>';
+				$output .= '<div class="pawsome-background">';
 			}
 
+			$output .= '<div class="card-overlay"></div>';
 			$output .= '<div class="pawsome-content">';
 			if ( $show_title ) {
 				$output .= '<h2 class="pawsome-title">' . get_the_title() . '</h2>';
