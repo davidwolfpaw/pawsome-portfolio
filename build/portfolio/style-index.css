@@ -50,9 +50,10 @@
   margin-inline: auto;
   padding: 2rem;
   position: relative;
+  width: 620px;
   max-width: 80vw;
   max-height: 80vh;
-  overflow-x: scroll;
+  overflow-y: scroll;
 }
 
 #pawsome-modal h2 {
@@ -81,14 +82,26 @@
   cursor: pointer;
 }
 
-/* Card Style */
-.pawsome-portfolio.is-style-portfolio-card .pawsome-portfolio-items {
+/* Portfolio Layout */
+.pawsome-portfolio .pawsome-portfolio-items {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   color: #fff;
 }
 
+.pawsome-portfolio .pawsome-title {
+  margin: 0;
+}
+
+.pawsome-portfolio .pawsome-tag {
+  padding: 2px 4px;
+  border-radius: 5px;
+  background-color: #a5f65f;
+  color: #000;
+}
+
+/* Card Style */
 .pawsome-portfolio.is-style-portfolio-card .pawsome-portfolio-item-link {
   color: #fff;
 }
@@ -127,10 +140,6 @@
   box-sizing: border-box;
   transition: transform 0.3s ease;
   overflow: hidden;
-}
-
-.pawsome-portfolio.is-style-portfolio-card .pawsome-title {
-  margin: 0;
 }
 
 .pawsome-portfolio.is-style-portfolio-card .pawsome-title::after {
@@ -181,11 +190,56 @@
   margin-bottom: 10px;
 }
 
-.pawsome-portfolio.is-style-portfolio-card .pawsome-tag {
-  padding: 2px 4px;
-  border-radius: 5px;
-  background-color: #a5f65f;
-  color: #000;
+/* List Style */
+.pawsome-portfolio.is-style-portfolio-list .pawsome-portfolio-items {
+  display: grid;
+  grid-template-columns: none;
+  gap: 20px;
+}
+
+.pawsome-portfolio.is-style-portfolio-list .pawsome-background {
+  background-color: rgba(0, 0, 0, 0.85);
+  height: 100px;
+  padding: 10px;
+  display: grid;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  align-content: center;
+  align-items: center;
+}
+
+/* Separate grid area if there is a featured image than if not */
+.pawsome-portfolio.is-style-portfolio-list .pawsome-background:has(img) {
+  grid-template-columns: 120px auto;
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.pawsome-portfolio.is-style-portfolio-list img {
+  grid-area: 1/1/3/2;
+  max-width: 100px;
+  max-height: 100px;
+  width: auto;
+  height: auto;
+}
+
+.pawsome-portfolio.is-style-portfolio-list .pawsome-background:has(img) .pawsome-content {
+  grid-area: 1/2/2/3;
+}
+
+.pawsome-portfolio.is-style-portfolio-list .pawsome-background:has(img) .pawsome-meta {
+  grid-area: 2/2/3/3;
+  display: flex;
+  gap: 20px;
+}
+
+.pawsome-portfolio.is-style-portfolio-list .pawsome-content {
+  grid-area: 1/1/2/2;
+}
+
+.pawsome-portfolio.is-style-portfolio-list .pawsome-meta {
+  grid-area: 2/1/3/2;
+  display: flex;
+  gap: 20px;
 }
 
 /*# sourceMappingURL=style-index.css.map*/

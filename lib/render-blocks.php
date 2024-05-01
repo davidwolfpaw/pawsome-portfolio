@@ -100,19 +100,27 @@ function pawsome_render_portfolio_block( $attributes ) {
 				$output .= '<a href="' . esc_url( $permalink ) . '" class="pawsome-portfolio-item-link">';
 			}
 
-			if ( $show_featured_image ) {
-				$image_url = get_the_post_thumbnail_url( $post_id, 'large' );
-				$output   .= '<div class="pawsome-background" style="background-image: url(\'' . esc_url( $image_url ) . '\');">';
+			$block_class    = isset( $attributes['className'] ) ? $attributes['className'] : '';
+			$has_list_style = strpos( $block_class, 'is-style-portfolio-list' ) !== false;
+			$image_url      = get_the_post_thumbnail_url( $post_id, 'large' );
+
+			// Background image does not show on list style, even if toggled on
+			if ( $show_featured_image && ! $has_list_style && $image_url ) {
+				$output .= '<div class="pawsome-background" style="background-image: url(\'' . esc_url( $image_url ) . '\');">';
+				$output .= '<div class="card-overlay"></div>';
+			} elseif ( $show_featured_image && $has_list_style && $image_url ) {
+				$output .= '<div class="pawsome-background">';
+				$output .= get_the_post_thumbnail( $post_id, array( 100, 100 ) );
 			} else {
 				$output .= '<div class="pawsome-background">';
 			}
 
-			$output .= '<div class="card-overlay"></div>';
 			$output .= '<div class="pawsome-content">';
 			if ( $show_title ) {
 				$output .= '<h2 class="pawsome-title">' . get_the_title() . '</h2>';
 			}
-			if ( $show_excerpt ) {
+			// Excerpt does not show on list style, even if toggled on
+			if ( $show_excerpt && ! $has_list_style ) {
 				$output .= '<p class="pawsome-excerpt">' . get_the_excerpt() . '</p>';
 			}
 			$output .= '</div>'; // .pawsome-content
