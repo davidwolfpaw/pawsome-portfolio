@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			modalContent.innerHTML = `
 	            <h2>${post.title.rendered}</h2>
 	            ${post.featured_image_src ? `<img src="${post.featured_image_src}" alt="${post.title.rendered}">` : ''}
-	            <p>${post.content.rendered}</p>
+	            ${post.content.rendered}
 	        `;
 			modal.style.display = 'flex';
 			modalContent.focus();
