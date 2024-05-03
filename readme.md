@@ -1,14 +1,4 @@
-=== Pawsome Portfolio ===
-Contributors:      wolfpaw
-Tags:              block, portfolio, tags, filter
-Tested up to:      6.5.2
-Stable tag:        1.0.0
-License:           GPL-2.0-or-later
-License URI:       https://www.gnu.org/licenses/gpl-2.0.html
-
-A Portfolio Block with a custom Portfolio Item post type that can then be tagged, and filtered by tag
-
-== Description ==
+# Pawsome Portfolio
 
 Do you have a portfolio of projects that you want to share? Perhaps a gallery of your artwork, or a selection of your web design clients?
 
@@ -18,7 +8,7 @@ For instance: let's say you're a mixed media artist. You may want to display all
 
 This plugin is a work in progress, with a goal of being flexible for any WordPress website, while a bit opinionated on layout and design.
 
-== Installation ==
+## Installation
 
 After you have installed and activated the plugin via the Add New Plugin, here are the steps to create your first portfolio:
 
@@ -36,16 +26,7 @@ After you have installed and activated the plugin via the Add New Plugin, here a
    4. Toggle which data related to a portfolio item you want to display
 6. That's it! Let your visitors peruse your portfolio!
 
+## Changelog
 
-== Screenshots ==
-
-TODO
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-
-== Changelog ==
-
-= 1.0.0 =
+### 1.0.0
 * Initial Release

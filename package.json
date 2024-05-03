@@ -1,6 +1,6 @@
 {
 	"name": "pawsome-portfolio",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"description": "A Portfolio Block with a custom Portfolio Item post type that can then be tagged, and filtered by tag",
 	"author": "wolfpaw",
 	"license": "GPL-2.0-or-later",

@@ -1,18 +1,1 @@
-/*!**************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/portfolio/editor.scss ***!
-  \**************************************************************************************************************************************************************************************************************************************************/
-/**
- * The following styles get applied inside the editor only.
- *
- * Replace them with your own styles or remove the file completely.
- */
-.wp-block-pawsome-portfolio-portfolio,
-.wp-block[data-type="pawsome-portfolio/portfolio"] {
-  border: 1px dotted #f00;
-}
-
-.editor-styles-wrapper .pawsome-portfolio a {
-  pointer-events: none;
-}
-
-/*# sourceMappingURL=index.css.map*/
+.wp-block-pawsome-portfolio-portfolio,.wp-block[data-type="pawsome-portfolio/portfolio"]{border:none}.editor-styles-wrapper .pawsome-portfolio a{pointer-events:none}
