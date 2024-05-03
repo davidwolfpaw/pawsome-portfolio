@@ -6,6 +6,8 @@ Pawsome Portfolio allows you to create individual pages for portfolio items of a
 
 For instance: let's say you're a mixed media artist. You may want to display all of your art at once, but also allow viewers to see just digital art, or just paintings, or just sketches. Maybe as a designer you want to display logos, branding, mockups, wireframes, etc as different tags.
 
+![Pawsome Portfolio Logo](assets/pawsome-portfolio-banner.png "Pawsome Portfolio")
+
 This plugin is a work in progress, with a goal of being flexible for any WordPress website, while a bit opinionated on layout and design.
 
 ## Installation
