@@ -85,9 +85,6 @@
 /* Portfolio Layout */
 .pawsome-portfolio .pawsome-portfolio-items {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  color: #fff;
 }
 
 .pawsome-portfolio .pawsome-title {
@@ -102,6 +99,12 @@
 }
 
 /* Card Style */
+.pawsome-portfolio.is-style-portfolio-card .pawsome-portfolio-items {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  color: #fff;
+}
+
 .pawsome-portfolio.is-style-portfolio-card .pawsome-portfolio-item-link {
   color: #fff;
 }
@@ -192,13 +195,19 @@
 
 /* List Style */
 .pawsome-portfolio.is-style-portfolio-list .pawsome-portfolio-items {
-  display: grid;
   grid-template-columns: none;
-  gap: 20px;
+  gap: 10px;
+}
+
+.pawsome-portfolio.is-style-portfolio-list .pawsome-portfolio-item {
+  background: rgb(222, 210, 252);
+  background: linear-gradient(90deg, rgba(222, 210, 252, 0.75) 0%, rgba(190, 217, 251, 0.75) 50%, rgba(138, 225, 251, 0.75) 100%);
+  padding: 3px;
+  border-radius: 5px;
 }
 
 .pawsome-portfolio.is-style-portfolio-list .pawsome-background {
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: rgba(255, 255, 255, 0.85);
   height: 100px;
   padding: 10px;
   display: grid;
@@ -206,6 +215,7 @@
   grid-row-gap: 10px;
   align-content: center;
   align-items: center;
+  border-radius: 3px;
 }
 
 /* Separate grid area if there is a featured image than if not */
