@@ -8,20 +8,20 @@
 document.addEventListener('DOMContentLoaded', function () {
 
 	const portfolioItems = document.querySelectorAll('.pawsome-portfolio-item');
-	const buttons = document.querySelectorAll('.pawsome-portfolio-tag-button');
+	const tagButtons = document.querySelectorAll('.pawsome-portfolio-tag-button');
 	const clearButton = document.createElement('button');
+	const params = new URLSearchParams(window.location.search);
+	const selectedTags = params.get('tags') ? params.get('tags').split(',').map(Number) : [];
 
 	clearButton.textContent = 'Clear Tags';
 	clearButton.className = 'clear-tags-button';
 
 	// Append the clear button after the last tag button
-	if (buttons.length > 0) {
-		buttons[buttons.length - 1].parentNode.appendChild(clearButton);
+	if (tagButtons.length > 0) {
+		tagButtons[tagButtons.length - 1].parentNode.appendChild(clearButton);
 	}
 
-	let selectedTags = [];
-
-	buttons.forEach(button => {
+	tagButtons.forEach(button => {
 		button.addEventListener('click', function () {
 			const tagId = parseInt(this.getAttribute('data-tag-id'));
 			const index = selectedTags.indexOf(tagId);
@@ -41,8 +41,39 @@ document.addEventListener('DOMContentLoaded', function () {
 	// Clear all selected tags
 	clearButton.addEventListener('click', function () {
 		selectedTags = [];
-		buttons.forEach(button => button.classList.remove('active'));
+		tagButtons.forEach(button => button.classList.remove('active'));
 		portfolioItems.forEach(item => item.style.display = '');
+	});
+
+	// Update URL with a query string for selected tags
+	tagButtons.forEach(tag => {
+		tag.addEventListener('click', function () {
+			const tagId = parseInt(this.dataset.tagId);
+			const params = new URLSearchParams(window.location.search);
+			let selectedTags = params.get('tags') ? params.get('tags').split(',').map(Number) : [];
+
+			const index = selectedTags.indexOf(tagId);
+			if (index > -1) {
+				// Remove tag if it's already in the array
+				selectedTags.splice(index, 1);
+			} else {
+				// Add tag to the array
+				selectedTags.push(tagId);
+			}
+
+			// Update the URL, converting array to comma-separated string
+			params.set('tags', selectedTags.join(','));
+			window.history.replaceState({}, '', `${window.location.pathname}?${params}`);
+		});
+	});
+
+	// Ensures that tags in query string are filtered on page load
+	selectedTags.forEach(tagId => {
+		const tagElement = document.querySelector(`.pawsome-portfolio-tag-button[data-tag-id="${tagId}"]`);
+		if (tagElement) {
+			tagElement.classList.add('active');
+		}
+		filterPosts();
 	});
 
 	// Filter posts based on selected tags
