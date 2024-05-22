@@ -47,5 +47,8 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 
 == Changelog ==
 
+= 1.0.1 =
+* adds query string to URL for selected tags and loads them
+
 = 1.0.0 =
 * Initial Release

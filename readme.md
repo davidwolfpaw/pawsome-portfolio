@@ -30,5 +30,8 @@ After you have installed and activated the plugin via the Add New Plugin, here a
 
 ## Changelog
 
+### 1.0.1
+* adds query string to URL for selected tags and loads them
+
 ### 1.0.0
 * Initial Release
