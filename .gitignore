@@ -1,3 +1,16 @@
+# WordPress specific
+/wp-content/uploads/
+/wp-content/upgrade/
+/wp-content/cache/
+/wp-content/backup-db/
+/wp-content/advanced-cache.php
+/wp-content/wp-cache-config.php
+/wp-content/debug.log
+
+# Ignore wp-cli configuration
+wp-cli.local.yml
+wp-cli.yml
+
 # compiled source #
 ###################
 *.com
@@ -43,7 +56,8 @@ Thumbs.db
 
 # IDE files #
 #############
-/.idea
+.idea/
+.vscode/
 *.sublime-project
 *.sublime-workspace
 *.code-workspace
@@ -56,6 +70,13 @@ build/Release
 
 # Dependency directories
 node_modules/
+dist/
+build/
+
+# Ignore composer and npm files
+composer.lock
+package-lock.json
+yarn.lock
 
 # Optional npm cache directory
 .npm
