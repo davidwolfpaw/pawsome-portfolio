@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const tagButtons = document.querySelectorAll('.pawsome-portfolio-tag-button');
   const clearButton = document.createElement('button');
   const params = new URLSearchParams(window.location.search);
-  const selectedTags = params.get('tags') ? params.get('tags').split(',').map(Number) : [];
+  let selectedTags = params.get('tags') ? params.get('tags').split(',').map(Number) : [];
   clearButton.textContent = 'Clear Tags';
   clearButton.className = 'clear-tags-button';
 
