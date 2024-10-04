@@ -29,6 +29,11 @@
 }
 
 
+/* Modal */
+.pawsome-portfolio[data-link-behavior="modal"] {
+	cursor: pointer;
+}
+
 /* Modal Lightbox */
 #pawsome-modal-container {
 	display: none;

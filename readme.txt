@@ -2,7 +2,7 @@
 Contributors:      wolfpaw
 Tags:              block, portfolio, tags, filter
 Tested up to:      6.5.2
-Stable tag:        1.0.0
+Stable tag:        1.0.2
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,6 +46,9 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 (or jpg, jpeg, gif).
 
 == Changelog ==
+
+= 1.0.2 =
+* changes modal cursor style to pointer to indicate clickability
 
 = 1.0.1 =
 * adds query string to URL for selected tags and loads them

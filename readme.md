@@ -30,6 +30,9 @@ After you have installed and activated the plugin via the Add New Plugin, here a
 
 ## Changelog
 
+### 1.0.2
+* changes modal cursor style to pointer to indicate clickability
+
 ### 1.0.1
 * adds query string to URL for selected tags and loads them
 
