@@ -1,1 +1,267 @@
-.pawsome-portfolio-tag-buttons{display:flex;gap:10px;margin-bottom:10px}.pawsome-portfolio .pawsome-portfolio-tag-button{background-color:#a5f65f;border:none;border-radius:5px;font-weight:500;padding:4px 8px}.pawsome-portfolio .pawsome-portfolio-tag-button.active{background-color:#0073aa;color:#fff}.pawsome-portfolio .clear-tags-button{cursor:pointer;margin-left:10px}.pawsome-portfolio[data-link-behavior=modal]{cursor:pointer}#pawsome-modal-container{align-items:center;background-color:rgba(0,0,0,.5);display:none;height:100%;justify-content:center;left:0;overflow:auto;position:fixed;top:0;width:100%;z-index:1}#pawsome-modal{background-color:#fff;margin-inline:auto;max-height:80vh;max-width:80vw;overflow-y:scroll;padding:2rem;position:relative;width:620px}#pawsome-modal h2{text-align:center}#pawsome-modal img{display:block;margin:0 auto}#pawsome-modal .close{color:#aaa;font-size:36px;font-weight:700;line-height:1;position:absolute;right:10px;top:10px}#pawsome-modal .close:focus,#pawsome-modal .close:hover{color:#000;cursor:pointer;text-decoration:none}.pawsome-portfolio .pawsome-portfolio-items{display:grid}.pawsome-portfolio .pawsome-portfolio-item-link{text-decoration:none}.pawsome-portfolio .pawsome-title{margin:0}.pawsome-portfolio .pawsome-tag{background-color:#a5f65f;border-radius:5px;color:#000;padding:2px 4px}.pawsome-portfolio.is-style-portfolio-card .pawsome-portfolio-items{gap:20px;grid-template-columns:repeat(2,1fr)}.pawsome-portfolio.is-style-portfolio-card .pawsome-portfolio-item-link{color:#000}.pawsome-portfolio.is-style-portfolio-card .pawsome-portfolio-item{background:#ded2fc;background:linear-gradient(90deg,rgba(222,210,252,.8),rgba(190,217,251,.8) 50%,rgba(138,225,251,.8));border-radius:5px}.pawsome-portfolio.is-style-portfolio-card .pawsome-background{background-position:50%;background-size:cover;border-radius:3px;height:320px;margin:5px;overflow:hidden;padding:5px;position:relative}.pawsome-portfolio.is-style-portfolio-card .card-overlay{background-color:hsla(0,0%,100%,.85);height:100%;left:0;position:absolute;top:0;transition:background-color .3s;width:100%}.pawsome-portfolio.is-style-portfolio-card .pawsome-content{align-items:center;box-sizing:border-box;display:grid;height:calc(100% - 40px);justify-content:center;left:50%;overflow:hidden;padding:10px;position:absolute;text-align:center;top:50%;transform:translate(-50%,-40%);transition:transform .3s ease;width:100%}.pawsome-portfolio.is-style-portfolio-card .pawsome-title:after{background:#a5f65f;border:0;content:" ";display:block;height:2px;margin:20px auto;transition:all .3s ease-in-out;width:10%}.pawsome-portfolio.is-style-portfolio-card .pawsome-excerpt{margin:0;opacity:0;padding:0;transition:opacity .3s ease-in-out}.pawsome-portfolio.is-style-portfolio-card .pawsome-portfolio-item:hover .card-overlay{background-color:hsla(0,0%,100%,.95)}.pawsome-portfolio.is-style-portfolio-card .pawsome-portfolio-item:hover .pawsome-content{transform:translate(-50%,-60%)}.pawsome-portfolio.is-style-portfolio-card .pawsome-portfolio-item:hover .pawsome-excerpt{opacity:1}.pawsome-portfolio.is-style-portfolio-card .pawsome-portfolio-item:hover .pawsome-title:after{width:50%}.pawsome-portfolio.is-style-portfolio-card .pawsome-meta{bottom:0;font-size:.8em;position:absolute}.pawsome-portfolio.is-style-portfolio-card .pawsome-tags{margin-bottom:10px}.pawsome-portfolio.is-style-portfolio-list .pawsome-portfolio-items{gap:10px;grid-template-columns:none}.pawsome-portfolio.is-style-portfolio-list .pawsome-portfolio-item{background:#ded2fc;background:linear-gradient(90deg,rgba(222,210,252,.75),rgba(190,217,251,.75) 50%,rgba(138,225,251,.75));border-radius:5px;padding:3px}.pawsome-portfolio.is-style-portfolio-list .pawsome-background{background-color:hsla(0,0%,100%,.85);display:grid;height:100px;padding:10px;grid-column-gap:10px;grid-row-gap:10px;align-content:center;align-items:center;border-radius:3px}.pawsome-portfolio.is-style-portfolio-list .pawsome-background:has(img){grid-template-columns:120px auto;grid-template-rows:repeat(2,1fr)}.pawsome-portfolio.is-style-portfolio-list img{grid-area:1/1/3/2;height:auto;max-height:100px;max-width:100px;width:auto}.pawsome-portfolio.is-style-portfolio-list .pawsome-background:has(img) .pawsome-content{grid-area:1/2/2/3}.pawsome-portfolio.is-style-portfolio-list .pawsome-background:has(img) .pawsome-meta{display:flex;gap:20px;grid-area:2/2/3/3}.pawsome-portfolio.is-style-portfolio-list .pawsome-content{grid-area:1/1/2/2}.pawsome-portfolio.is-style-portfolio-list .pawsome-meta{display:flex;gap:20px;grid-area:2/1/3/2}
+/*!*************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/portfolio/style.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ */
+/* Filter Tags */
+.pawsome-portfolio-tag-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.pawsome-portfolio .pawsome-portfolio-tag-button {
+  background-color: #a5f65f;
+  border: none;
+  border-radius: 5px;
+  padding: 4px 8px;
+  font-weight: 500;
+}
+
+.pawsome-portfolio .pawsome-portfolio-tag-button.active {
+  background-color: #0073aa;
+  color: white;
+}
+
+.pawsome-portfolio .clear-tags-button {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+/* Modal */
+.pawsome-portfolio[data-link-behavior=modal] {
+  cursor: pointer;
+}
+
+/* Modal Lightbox */
+#pawsome-modal-container {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.pawsome-modal {
+  background-color: #ffffff;
+  margin-inline: auto;
+  padding: 2rem;
+  position: relative;
+  width: 620px;
+  max-width: 80vw;
+  max-height: 80vh;
+  overflow-y: scroll;
+}
+
+.pawsome-modal h2 {
+  text-align: center;
+}
+
+.pawsome-modal img {
+  display: block;
+  margin: 0 auto;
+}
+
+.pawsome-modal .close {
+  color: #aaaaaa;
+  font-size: 36px;
+  font-weight: bold;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  line-height: 1;
+}
+
+.pawsome-modal .close:hover,
+.pawsome-modal .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Portfolio Layout */
+.pawsome-portfolio .pawsome-portfolio-items {
+  display: grid;
+}
+
+.pawsome-portfolio .pawsome-portfolio-item-link {
+  text-decoration: none;
+}
+
+.pawsome-portfolio .pawsome-title {
+  margin: 0;
+}
+
+.pawsome-portfolio .pawsome-tag {
+  padding: 2px 4px;
+  border-radius: 5px;
+  background-color: #a5f65f;
+  color: #000;
+}
+
+/* Card Style */
+.pawsome-portfolio.is-style-portfolio-card .pawsome-portfolio-items {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.pawsome-portfolio.is-style-portfolio-card .pawsome-portfolio-item-link {
+  color: #000;
+}
+
+.pawsome-portfolio.is-style-portfolio-card .pawsome-portfolio-item {
+  background: rgb(222, 210, 252);
+  background: linear-gradient(90deg, rgba(222, 210, 252, 0.8) 0%, rgba(190, 217, 251, 0.8) 50%, rgba(138, 225, 251, 0.8) 100%);
+  border-radius: 5px;
+}
+
+.pawsome-portfolio.is-style-portfolio-card .pawsome-background {
+  height: 320px;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 3px;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  overflow: hidden;
+}
+
+.pawsome-portfolio.is-style-portfolio-card .card-overlay {
+  background-color: rgba(255, 255, 255, 0.85);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: background-color 0.3s;
+}
+
+.pawsome-portfolio.is-style-portfolio-card .pawsome-content {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  text-align: center;
+  width: 100%;
+  height: calc(100% - 40px);
+  padding: 10px;
+  box-sizing: border-box;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+}
+
+.pawsome-portfolio.is-style-portfolio-card .pawsome-title::after {
+  content: " ";
+  display: block;
+  width: 10%;
+  height: 2px;
+  margin: 20px auto;
+  border: 0;
+  background: #a5f65f;
+  transition: all 0.3s ease-in-out;
+}
+
+.pawsome-portfolio.is-style-portfolio-card .pawsome-excerpt {
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.pawsome-portfolio.is-style-portfolio-card .pawsome-portfolio-item:hover .card-overlay {
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.pawsome-portfolio.is-style-portfolio-card .pawsome-portfolio-item:hover .pawsome-content {
+  transform: translate(-50%, -60%);
+}
+
+.pawsome-portfolio.is-style-portfolio-card .pawsome-portfolio-item:hover .pawsome-excerpt {
+  opacity: 1;
+}
+
+.pawsome-portfolio.is-style-portfolio-card .pawsome-portfolio-item:hover .pawsome-title::after {
+  width: 50%;
+}
+
+.pawsome-portfolio.is-style-portfolio-card .pawsome-meta {
+  position: absolute;
+  bottom: 0;
+  font-size: 0.8em;
+}
+
+.pawsome-portfolio.is-style-portfolio-card .pawsome-tags {
+  margin-bottom: 10px;
+}
+
+/* List Style */
+.pawsome-portfolio.is-style-portfolio-list .pawsome-portfolio-items {
+  grid-template-columns: none;
+  gap: 10px;
+}
+
+.pawsome-portfolio.is-style-portfolio-list .pawsome-portfolio-item {
+  background: rgb(222, 210, 252);
+  background: linear-gradient(90deg, rgba(222, 210, 252, 0.75) 0%, rgba(190, 217, 251, 0.75) 50%, rgba(138, 225, 251, 0.75) 100%);
+  padding: 3px;
+  border-radius: 5px;
+}
+
+.pawsome-portfolio.is-style-portfolio-list .pawsome-background {
+  background-color: rgba(255, 255, 255, 0.85);
+  height: 100px;
+  padding: 10px;
+  display: grid;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  align-content: center;
+  align-items: center;
+  border-radius: 3px;
+}
+
+/* Separate grid area if there is a featured image than if not */
+.pawsome-portfolio.is-style-portfolio-list .pawsome-background:has(img) {
+  grid-template-columns: 120px auto;
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.pawsome-portfolio.is-style-portfolio-list img {
+  grid-area: 1/1/3/2;
+  max-width: 100px;
+  max-height: 100px;
+  width: auto;
+  height: auto;
+}
+
+.pawsome-portfolio.is-style-portfolio-list .pawsome-background:has(img) .pawsome-content {
+  grid-area: 1/2/2/3;
+}
+
+.pawsome-portfolio.is-style-portfolio-list .pawsome-background:has(img) .pawsome-meta {
+  grid-area: 2/2/3/3;
+  display: flex;
+  gap: 20px;
+}
+
+.pawsome-portfolio.is-style-portfolio-list .pawsome-content {
+  grid-area: 1/1/2/2;
+}
+
+.pawsome-portfolio.is-style-portfolio-list .pawsome-meta {
+  grid-area: 2/1/3/2;
+  display: flex;
+  gap: 20px;
+}
+
+/*# sourceMappingURL=style-index.css.map*/

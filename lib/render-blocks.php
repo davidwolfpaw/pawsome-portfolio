@@ -162,7 +162,7 @@ function pawsome_render_portfolio_block( $attributes ) {
 
 	// Modal container
 	if ( 'modal' === $attributes['link_behavior'] ) {
-		$output .= '<div id="pawsome-modal-container"><div id="pawsome-modal"><span class="close">&#8855;</span><div class="pawsome-modal-content"></div></div></div>';
+		$output .= '<div id="pawsome-modal-container"><div class="pawsome-modal"><span class="close">&#8855;</span><div class="pawsome-modal-content"></div></div></div>';
 	}
 
 	$output .= '</div>';

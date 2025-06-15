@@ -49,7 +49,7 @@
 	background-color: rgba(0, 0, 0, 0.5);
 }
 
-#pawsome-modal {
+.pawsome-modal {
 	background-color: #ffffff;
 	margin-inline: auto;
 	padding: 2rem;
@@ -60,16 +60,16 @@
 	overflow-y: scroll;
 }
 
-#pawsome-modal h2 {
+.pawsome-modal h2 {
 	text-align: center;
 }
 
-#pawsome-modal img {
+.pawsome-modal img {
 	display: block;
 	margin: 0 auto;
 }
 
-#pawsome-modal .close {
+.pawsome-modal .close {
 	color: #aaaaaa;
 	font-size: 36px;
 	font-weight: bold;
@@ -79,8 +79,8 @@
 	line-height: 1;
 }
 
-#pawsome-modal .close:hover,
-#pawsome-modal .close:focus {
+.pawsome-modal .close:hover,
+.pawsome-modal .close:focus {
 	color: #000;
 	text-decoration: none;
 	cursor: pointer;
