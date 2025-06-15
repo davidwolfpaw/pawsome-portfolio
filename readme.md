@@ -30,6 +30,10 @@ After you have installed and activated the plugin via the Add New Plugin, here a
 
 ## Changelog
 
+### 1.0.3
+* changes modal from using ID to Class for specificity issues
+* updates CSS to match
+
 ### 1.0.2
 * changes modal cursor style to pointer to indicate clickability
 

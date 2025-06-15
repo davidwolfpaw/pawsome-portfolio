@@ -47,6 +47,10 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 
 == Changelog ==
 
+= 1.0.3 =
+* changes modal from using ID to Class for specificity issues
+* updates CSS to match
+
 = 1.0.2 =
 * changes modal cursor style to pointer to indicate clickability
 
