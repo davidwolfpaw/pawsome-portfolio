@@ -27,7 +27,8 @@ function pawsome_render_portfolio_block( $attributes ) {
 	$show_modified_date  = $attributes['show_modified_date'];
 	$show_year           = isset( $attributes['show_year'] ) ? $attributes['show_year'] : true;
 
-	$output = '<div class="pawsome-portfolio ' . $attributes['className'] . '" data-link-behavior="' . esc_attr( $attributes['link_behavior'] ) . '">';
+	$class_name = isset( $attributes['className'] ) ? ' ' . esc_attr( $attributes['className'] ) : '';
+	$output     = '<div class="pawsome-portfolio' . $class_name . '" data-link-behavior="' . esc_attr( $attributes['link_behavior'] ) . '">';
 
 	$args  = array(
 		'post_type'      => 'pawsome_item',
@@ -85,6 +86,7 @@ function pawsome_render_portfolio_block( $attributes ) {
 			$post_tags = get_the_terms( get_the_ID(), 'pawsome_tag' );
 
 			// Gets IDs of tags attached to portfolio items for filtering
+			$tag_ids = array();
 			if ( ! is_wp_error( $post_tags ) && ! empty( $post_tags ) ) {
 				$tag_ids = array_map(
 					function ( $tag ) {
