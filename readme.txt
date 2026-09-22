@@ -2,7 +2,7 @@
 Contributors:      wolfpaw
 Tags:              block, portfolio, tags, filter
 Tested up to:      6.5.2
-Stable tag:        1.0.2
+Stable tag:        1.1
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,6 +46,12 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 (or jpg, jpeg, gif).
 
 == Changelog ==
+
+= 1.1 =
+* adds project year meta field with sidebar meta box
+* adds Show Year toggle to portfolio block editor
+* renders project year in block output
+* updates card footer layout and year display styles
 
 = 1.0.3 =
 * changes modal from using ID to Class for specificity issues
