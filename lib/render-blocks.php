@@ -25,6 +25,7 @@ function pawsome_render_portfolio_block( $attributes ) {
 	$show_tags           = $attributes['show_tags'];
 	$show_publish_date   = $attributes['show_publish_date'];
 	$show_modified_date  = $attributes['show_modified_date'];
+	$show_year           = isset( $attributes['show_year'] ) ? $attributes['show_year'] : true;
 
 	$output = '<div class="pawsome-portfolio ' . $attributes['className'] . '" data-link-behavior="' . esc_attr( $attributes['link_behavior'] ) . '">';
 
@@ -144,6 +145,12 @@ function pawsome_render_portfolio_block( $attributes ) {
 						$output .= '<span class="pawsome-tag">' . esc_html( $tag->name ) . '</span> ';
 					}
 					$output .= '</div>';
+				}
+			}
+			if ( $show_year ) {
+				$year = get_post_meta( $post_id, '_pawsome_year', true );
+				if ( $year ) {
+					$output .= '<span class="pawsome-year">' . esc_html( $year ) . '</span>';
 				}
 			}
 			$output .= '</div>'; // .pawsome-meta
