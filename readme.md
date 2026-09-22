@@ -30,6 +30,12 @@ After you have installed and activated the plugin via the Add New Plugin, here a
 
 ## Changelog
 
+### 1.1
+* adds project year meta field with sidebar meta box
+* adds Show Year toggle to portfolio block editor
+* renders project year in block output
+* updates card footer layout and year display styles
+
 ### 1.0.3
 * changes modal from using ID to Class for specificity issues
 * updates CSS to match
